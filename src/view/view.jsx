@@ -1,145 +1,76 @@
+import { Auth0Provider } from "@auth0/auth0-react";
 import { QueryProvider } from "../providers/queryProvider";
 import { ChakraUIProvider } from "../providers/chakcraProvider";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { ProtectedRoute } from "../routes/protectedRoute";
-import { PublicRoute } from "../routes/publicRoute";
+
+import { lazy } from "react";
+import Layout from "../components/constructor/layout";
+import NotFound from "../pages/404";
+import { NuqsProvider } from "../providers/nuqsProvider";
+
+const Invitation = lazy(() => import("../pages/invitation"));
+
+const Themes = lazy(() => import("../pages/constructor/themes"));
+const Customisations = lazy(() =>
+  import("../pages/constructor/customisations")
+);
+const Details = lazy(() => import("../pages/constructor/details"));
+const Preview = lazy(() => import("../pages/constructor/preview"));
+const Confirm = lazy(() => import("../pages/constructor/confirm"));
 
 const routes = createBrowserRouter([
   {
-    path: "/",
-    children: [
-      {
-        index: true,
-        element: (
-          <PublicRoute>
-            <Login />
-          </PublicRoute>
-        ),
-      },
-      {
-        path: "*",
-        element: (
-          <PublicRoute>
-            <Login />
-          </PublicRoute>
-        ),
-      },
-    ],
+    path: "/men-women",
+    element: <Invitation model={1} />,
   },
   {
-    path: "/ui",
-    element: (
-      <ProtectedRoute>
-        <Layout />
-      </ProtectedRoute>
-    ),
+    path: "/",
+    element: <Layout />,
     children: [
       {
         index: true,
-        element: <UI />,
+        element: <Themes />,
       },
       {
-        path: "about",
-        children: [
-          { index: true, element: <About /> },
-          { path: "edit/:id", element: <AboutEdit /> },
-          { path: "add", element: <AboutAdd /> },
-        ],
+        path: "customisations",
+        element: <Customisations />,
       },
       {
-        path: "contact",
-        children: [
-          { index: true, element: <Contact /> },
-          { path: "edit/:id", element: <ContactEdit /> },
-          { path: "add", element: <ContactAdd /> },
-        ],
+        path: "details",
+        element: <Details />,
       },
       {
-        path: "places",
-        children: [
-          { index: true, element: <Places /> },
-          { path: "edit/:id", element: <PlacesEdit /> },
-          { path: "add", element: <PlacesAdd /> },
-        ],
+        path: "preview",
+        element: <Preview />,
       },
       {
-        path: "faqs",
-        children: [
-          { index: true, element: <Faqs /> },
-          { path: "edit/:id", element: <FaqsEdit /> },
-          { path: "add", element: <FaqsAdd /> },
-        ],
+        path: "confirm",
+        element: <Confirm />,
       },
-      {
-        path: "management",
-        children: [
-          {
-            path: "workers",
-            children: [
-              { index: true, element: <Workers /> },
-              { path: "edit/:id", element: <WorkerEdit /> },
-              { path: "add", element: <WorkerAdd /> },
-            ],
-          },
-          {
-            path: "control",
-            children: [
-              { index: true, element: <Control /> },
-              { path: "edit/:id", element: <ControlEdit /> },
-              { path: "add", element: <ControlAdd /> },
-            ],
-          },
-          {
-            path: "menu",
-            children: [
-              { index: true, element: <Menu /> },
-              { path: "edit/:id", element: <MenuEdit /> },
-              { path: "add", element: <MenuAdd /> },
-            ],
-          },
-          {
-            path: "logs",
-            element: <Logs />,
-          },
-        ],
-      },
-      {
-        path: "seo",
-        children: [
-          {
-            path: "social",
-            children: [
-              { index: true, element: <Social /> },
-              { path: "edit/:id", element: <SocialEdit /> },
-              { path: "add", element: <SocialAdd /> },
-            ],
-          },
-          {
-            path: "translations",
-            children: [
-              { index: true, element: <Translations /> },
-              { path: "edit/:id", element: <TranslationsEdit /> },
-              { path: "add", element: <TranslationsAdd /> },
-            ],
-          },
-          {
-            path: "analytics",
-            element: <Analytics />,
-          },
-        ],
-      },
-      { path: "*", element: <NotFound /> },
     ],
   },
+  { path: "*", element: <NotFound /> },
 ]);
+
+const { VITE_DOMAIN, VITE_CLIENT_ID } = import.meta.env;
 
 const View = () => {
   return (
-    <QueryProvider>
-      <ChakraUIProvider>
-        <RouterProvider router={routes} />
-      </ChakraUIProvider>
-    </QueryProvider>
+    <Auth0Provider
+      domain={VITE_DOMAIN}
+      clientId={VITE_CLIENT_ID}
+      authorizationParams={{
+        redirect_uri: window.location.origin,
+      }}
+    >
+      <QueryProvider>
+        <ChakraUIProvider>
+          <NuqsProvider>
+            <RouterProvider router={routes} />
+          </NuqsProvider>
+        </ChakraUIProvider>
+      </QueryProvider>
+    </Auth0Provider>
   );
 };
 
