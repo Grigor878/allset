@@ -1,9 +1,10 @@
+import { useQueryState } from "nuqs";
 import { Box, Container, Flex, Icon, Link } from "@chakra-ui/react";
-// import { Auth } from "../../pages/auth";
-import { Steps } from "./steps";
 import { NavLink } from "react-router-dom";
 import { constructor } from "../../assets/svgs";
-import { useQueryState } from "nuqs";
+import { Steps } from "./steps";
+import { Language } from "../language";
+// import { Auth } from "../../pages/auth";
 
 export const Header = () => {
   const [_, setTemplate] = useQueryState("template");
@@ -28,7 +29,7 @@ export const Header = () => {
           <Link
             as={NavLink}
             onClick={() => setTemplate(null)}
-            to="/"
+            to=""
             fontWeight="700"
             fontSize={"20px"}
             gap="12px"
@@ -37,9 +38,12 @@ export const Header = () => {
             Wedding Constructor
           </Link>
 
-          <Steps />
+          <Flex gap="12px">
+            <Steps />
+            <Language />
+            {/* <Auth /> */}
+          </Flex>
         </Flex>
-        {/* <Auth /> */}
       </Container>
     </Box>
   );

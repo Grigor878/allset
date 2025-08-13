@@ -1,11 +1,12 @@
 import { Center, Stack, Image, Heading, Text } from "@chakra-ui/react";
 import { useLocation } from "react-router-dom";
 import { contentMap } from "../../utils/constants";
+import { pathWithoutLang } from "../../utils/formatters";
 
 export const TopPart = () => {
   const { pathname } = useLocation();
 
-  const content = contentMap[pathname];
+  const content = contentMap[pathWithoutLang(pathname)];
 
   if (!content) return;
 

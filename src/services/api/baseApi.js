@@ -4,7 +4,10 @@ import { queryClient } from "../../providers/queryProvider";
 import { error } from "../../components/alerts";
 
 const instance = axios.create({
-    baseURL: BASE_API
+    baseURL: BASE_API,
+    headers: {
+    "Accept": "*/*", // same as your curl
+  },
 });
 
 instance.interceptors.response.use(

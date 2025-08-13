@@ -1,14 +1,20 @@
 import { Box, Flex, Heading, Icon, Image, Stack, Text } from "@chakra-ui/react";
 import { useQueryState } from "nuqs";
 import { selected } from "../../assets/svgs";
+import { formatUrl } from "../../utils/formatters";
+import { getLanguageKey } from "../../utils/helpers";
+import { useParams } from "react-router-dom";
 
 export const Template = ({ el }) => {
-  const { id, img, bg, name, text, features } = el;
+  const { language } = useParams();
+  const lng = getLanguageKey(language);
+
+  const { id, templateImage, name, description } = el;
 
   const [template, setTemplate] = useQueryState("template");
 
   const isSelected = template == id;
-
+  
   return (
     <Stack
       onClick={() => setTemplate(id || null)}
@@ -31,8 +37,9 @@ export const Template = ({ el }) => {
       }}
       tabIndex={0}
     >
-      <Box bg={bg} borderTopRadius="12px">
-        <Image src={img} p="24px" />
+      {/* <Box bg={bg} borderTopRadius="12px"> */}
+      <Box borderTopRadius="12px">
+        <Image w="100%" h="272px" src={formatUrl(templateImage)} p="24px" />
       </Box>
 
       {isSelected && (
@@ -54,9 +61,9 @@ export const Template = ({ el }) => {
       )}
 
       <Stack pr="24px" pl="24px" gap="8px">
-        <Heading fontWeight={700}>{name}</Heading>
+        <Heading fontWeight={700}>{name[lng]}</Heading>
         <Text fontWeight={400} color="#4B5563">
-          {text}
+          {description[lng]}
         </Text>
       </Stack>
     </Stack>

@@ -1,16 +1,20 @@
-import { Auth0Provider } from "@auth0/auth0-react";
 import { QueryProvider } from "../providers/queryProvider";
 import { ChakraUIProvider } from "../providers/chakcraProvider";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  Navigate,
+  RouterProvider,
+} from "react-router-dom";
 
 import { lazy } from "react";
 import Layout from "../components/constructor/layout";
 import NotFound from "../pages/404";
 import { NuqsProvider } from "../providers/nuqsProvider";
+import { AuthProvider } from "../providers/authProvider";
+import cookies from "js-cookie";
 
 const Invitation = lazy(() => import("../pages/invitation"));
-
-const Themes = lazy(() => import("../pages/constructor/themes"));
+const Templates = lazy(() => import("../pages/constructor/templates"));
 const Customisations = lazy(() =>
   import("../pages/constructor/customisations")
 );
@@ -25,11 +29,16 @@ const routes = createBrowserRouter([
   },
   {
     path: "/",
+    element: <Navigate to={cookies.get("i18next") || "hy"} replace />,
+  },
+  {
+    // path: "/",
+    path: "/:language",
     element: <Layout />,
     children: [
       {
         index: true,
-        element: <Themes />,
+        element: <Templates />,
       },
       {
         path: "customisations",
@@ -52,17 +61,9 @@ const routes = createBrowserRouter([
   { path: "*", element: <NotFound /> },
 ]);
 
-const { VITE_DOMAIN, VITE_CLIENT_ID } = import.meta.env;
-
 const View = () => {
   return (
-    <Auth0Provider
-      domain={VITE_DOMAIN}
-      clientId={VITE_CLIENT_ID}
-      authorizationParams={{
-        redirect_uri: window.location.origin,
-      }}
-    >
+    <AuthProvider>
       <QueryProvider>
         <ChakraUIProvider>
           <NuqsProvider>
@@ -70,7 +71,7 @@ const View = () => {
           </NuqsProvider>
         </ChakraUIProvider>
       </QueryProvider>
-    </Auth0Provider>
+    </AuthProvider>
   );
 };
 

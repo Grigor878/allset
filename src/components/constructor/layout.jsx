@@ -5,13 +5,15 @@ import { Box } from "@chakra-ui/react";
 import { Header } from "./header";
 import { Footer } from "./footer";
 import { TopPart } from "./topPart";
+import { Loader } from "../loader";
 
 const Layout = () => {
   return (
     <Box>
       <Header />
       <TopPart />
-      <Suspense fallback={null}>
+      <Suspense fallback={<Loader />}>
+      {/* <Suspense fallback={null}> */}
         {/* <Box as="main" flex="1" p={4}> */}
         <Outlet />
         {/* </Box> */}

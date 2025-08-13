@@ -1,6 +1,6 @@
 import { Button } from "@chakra-ui/react";
 import { NavLink, useLocation } from "react-router-dom";
-import { getNextRoute } from "../../utils/helpers";
+import { getNextRoute, hasMultipleWords } from "../../utils/helpers";
 import { useQueryState } from "nuqs";
 
 export const Continue = () => {
@@ -21,7 +21,7 @@ export const Continue = () => {
       bg="#F43F5E"
       disabled={!template}
     >
-      Continue to {name}
+      {hasMultipleWords(name) ? name : `Continue to ${name}`}
     </Button>
   );
 };

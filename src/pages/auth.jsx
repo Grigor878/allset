@@ -2,7 +2,8 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { Box, Button } from "@chakra-ui/react";
 
 export const Auth = () => {
-  const { user, isAuthenticated, loginWithRedirect, logout } = useAuth0();
+  const { user, isAuthenticated, loginWithPopup, logout } = useAuth0();
+console.log(user);
 
   return (
     <Box>
@@ -10,8 +11,8 @@ export const Auth = () => {
       {isAuthenticated ? (
         <Button onClick={logout}>Log-Out</Button>
       ) : (
-        // <button onClick={loginWithPopup}>Log-In</button>
-        <Button onClick={loginWithRedirect}>Log-In</Button>
+        <button onClick={loginWithPopup}>Log-In</button>
+        // <Button onClick={loginWithRedirect}>Log-In</Button>
       )}
     </Box>
   );
