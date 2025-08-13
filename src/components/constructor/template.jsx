@@ -1,23 +1,28 @@
 import { Box, Flex, Heading, Icon, Image, Stack, Text } from "@chakra-ui/react";
-import { useQueryState } from "nuqs";
+import { useNuqsCookie } from "../../hooks/useNuqsCookie";
 import { selected } from "../../assets/svgs";
 import { formatUrl } from "../../utils/formatters";
 import { getLanguageKey } from "../../utils/helpers";
 import { useParams } from "react-router-dom";
+import cookies from "js-cookie";
 
 export const Template = ({ el }) => {
   const { language } = useParams();
-  const lng = getLanguageKey(language);
-
   const { id, templateImage, name, description } = el;
 
-  const [template, setTemplate] = useQueryState("template");
+  const [template, setTemplate] = useNuqsCookie("template");
 
+  const lng = getLanguageKey(language);
   const isSelected = template == id;
-  
+
+  const handleSelect = () => {
+    setTemplate(id || null);
+    cookies.set("template", id);
+  };
+
   return (
     <Stack
-      onClick={() => setTemplate(id || null)}
+      onClick={handleSelect}
       gap="24px"
       w="347px"
       h="608px"

@@ -1,10 +1,10 @@
 import { Button } from "@chakra-ui/react";
 import { NavLink, useLocation } from "react-router-dom";
 import { getNextRoute, hasMultipleWords } from "../../utils/helpers";
-import { useQueryState } from "nuqs";
+import { useNuqsCookie } from "../../hooks/useNuqsCookie";
 
 export const Continue = () => {
-  const [template] = useQueryState("template");
+  const [template] = useNuqsCookie("template");
   const { pathname } = useLocation();
 
   if (pathname === "/confirm") return;

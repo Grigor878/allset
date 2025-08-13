@@ -1,13 +1,13 @@
-import { useQueryState } from "nuqs";
 import { Box, Container, Flex, Icon, Link } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
 import { constructor } from "../../assets/svgs";
 import { Steps } from "./steps";
 import { Language } from "../language";
+import { useNuqsCookie } from "../../hooks/useNuqsCookie";
 // import { Auth } from "../../pages/auth";
 
 export const Header = () => {
-  const [_, setTemplate] = useQueryState("template");
+  const [_, setTemplate] = useNuqsCookie("template", null);
 
   return (
     <Box
