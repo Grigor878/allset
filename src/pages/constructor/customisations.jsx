@@ -1,10 +1,10 @@
 import { Box, Container, Flex } from "@chakra-ui/react";
 import { useTanstack } from "../../hooks/useTanstack";
-import { useNuqsCookie } from "../../hooks/useNuqsCookie";
+import { useNuqs } from "../../hooks/useNuqs";
 
 const Customisations = () => {
   const { data } = useTanstack("templates");
-  const [template] = useNuqsCookie("template");
+  const [template] = useNuqs("template");
 
   const filteredData = data?.filter((item) => item.id === template) || [];
 console.log(filteredData);

@@ -3,11 +3,11 @@ import { NavLink } from "react-router-dom";
 import { constructor } from "../../assets/svgs";
 import { Steps } from "./steps";
 import { Language } from "../language";
-import { useNuqsCookie } from "../../hooks/useNuqsCookie";
+import { useNuqs } from "../../hooks/useNuqs";
 // import { Auth } from "../../pages/auth";
 
 export const Header = () => {
-  const [_, setTemplate] = useNuqsCookie("template", null);
+  const [_, setTemplate] = useNuqs("template", null);
 
   return (
     <Box

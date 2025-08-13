@@ -1,7 +1,7 @@
 import { useQueryState } from "nuqs";
 import cookies from "js-cookie";
 
-export function useNuqsCookie(key, defaultValue = null, options = {}) {
+export function useNuqs(key, defaultValue = null, options = {}) {
   const cookieValue = cookies.get(key);
   const initialValue = cookieValue ?? defaultValue;
 

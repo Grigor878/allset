@@ -1,5 +1,5 @@
 import { Box, Flex, Heading, Icon, Image, Stack, Text } from "@chakra-ui/react";
-import { useNuqsCookie } from "../../hooks/useNuqsCookie";
+import { useNuqs } from "../../hooks/useNuqs";
 import { selected } from "../../assets/svgs";
 import { formatUrl } from "../../utils/formatters";
 import { getLanguageKey } from "../../utils/helpers";
@@ -10,7 +10,7 @@ export const Template = ({ el }) => {
   const { language } = useParams();
   const { id, templateImage, name, description } = el;
 
-  const [template, setTemplate] = useNuqsCookie("template");
+  const [template, setTemplate] = useNuqs("template");
 
   const lng = getLanguageKey(language);
   const isSelected = template == id;
