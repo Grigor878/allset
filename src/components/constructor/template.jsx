@@ -1,13 +1,15 @@
-import { Box, Flex, Heading, Icon, Image, Stack, Text } from "@chakra-ui/react";
+import { useLanguage } from "../../hooks/useLanguge";
 import { useNuqs } from "../../hooks/useNuqs";
+import { Box, Flex, Icon, Image, Stack, Text } from "@chakra-ui/react";
+import { MidText } from "./texts/midText";
+import { SubText } from "./texts/subText";
 import { selected } from "../../assets/svgs";
 import { formatUrl } from "../../utils/formatters";
 import { getLanguageKey } from "../../utils/helpers";
-import { useParams } from "react-router-dom";
-import cookies from "js-cookie";
 
 export const Template = ({ el }) => {
-  const { language } = useParams();
+  const language = useLanguage();
+  
   const { id, templateImage, name, description } = el;
 
   const [template, setTemplate] = useNuqs("template");
@@ -15,14 +17,9 @@ export const Template = ({ el }) => {
   const lng = getLanguageKey(language);
   const isSelected = template == id;
 
-  const handleSelect = () => {
-    setTemplate(id || null);
-    cookies.set("template", id);
-  };
-
   return (
     <Stack
-      onClick={handleSelect}
+      bg="white"
       gap="24px"
       w="347px"
       h="608px"
@@ -31,16 +28,15 @@ export const Template = ({ el }) => {
       borderRadius={"12px"}
       transition={".3s ease"}
       _hover={{
-        // border: "2px solid #F43F5E",
-        boxShadow: "0 0 0 2px rgba(244, 63, 94, 0.4)",
-
+        borderColor: "#F43F5E",
         cursor: "pointer",
       }}
       _focus={{
-        border: "2px solid #F43F5E",
+        borderColor: "#F43F5E",
         outline: "none",
       }}
       tabIndex={0}
+      onClick={() => setTemplate(id)}
     >
       {/* <Box bg={bg} borderTopRadius="12px"> */}
       <Box borderTopRadius="12px">
@@ -66,10 +62,8 @@ export const Template = ({ el }) => {
       )}
 
       <Stack pr="24px" pl="24px" gap="8px">
-        <Heading fontWeight={700}>{name[lng]}</Heading>
-        <Text fontWeight={400} color="#4B5563">
-          {description[lng]}
-        </Text>
+        <MidText text={name[lng]} />
+        <SubText text={description[lng]} />
       </Stack>
     </Stack>
   );

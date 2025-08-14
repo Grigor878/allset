@@ -4,6 +4,7 @@ import { constructor } from "../../assets/svgs";
 import { Steps } from "./steps";
 import { Language } from "../language";
 import { useNuqs } from "../../hooks/useNuqs";
+import { MidText } from "./texts/midText";
 // import { Auth } from "../../pages/auth";
 
 export const Header = () => {
@@ -30,12 +31,10 @@ export const Header = () => {
             as={NavLink}
             onClick={() => setTemplate(null)}
             to=""
-            fontWeight="700"
-            fontSize={"20px"}
             gap="12px"
           >
             <Icon>{constructor.icon}</Icon>
-            Wedding Constructor
+            <MidText text={"Wedding Constructor"} />
           </Link>
 
           <Flex gap="12px">

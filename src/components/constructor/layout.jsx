@@ -9,7 +9,7 @@ import { Loader } from "../loader";
 
 const Layout = () => {
   return (
-    <Box>
+    <Box bg="#F9FAFB">
       <Header />
       <TopPart />
       <Suspense fallback={<Loader />}>
