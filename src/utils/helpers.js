@@ -50,8 +50,8 @@ import { localesRegex } from "./regex";
 export const navigateWithLocal = (pathname) =>
   pathname.replace(localesRegex, "")
 
-export const getLanguageKey  = (language) => {
-  if (language === "hy") return "am"; 
+export const getLanguageKey = (language) => {
+  if (language === "hy") return "am";
   return language;
 };
 
@@ -61,4 +61,12 @@ export function random(num) {
 
 export function getCurrentYear() {
   return new Date().getFullYear();
+}
+
+import cookies from "js-cookie";
+
+export function clearAllSiteCookies() {
+  Object.keys(cookies.get()).forEach((cookieName) => {
+    cookies.remove(cookieName);
+  });
 }

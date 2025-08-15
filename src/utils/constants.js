@@ -56,6 +56,28 @@ export const contentMap = {
   },
 };
 
+
+import { Icon } from '@chakra-ui/react';
+import { laptop, mobile, pc } from '../assets/svgs';
+
+export const responsive = [
+  {
+    id: 1,
+    name: "pc",
+    icon: <Icon>{pc.icon}</Icon>
+  },
+  {
+    id: 2,
+    name: "mobile",
+    icon: <Icon>{mobile.icon}</Icon>
+  },
+  {
+    id: 3,
+    name: "laptop",
+    icon: <Icon>{laptop.icon}</Icon>
+  }
+]
+
 // templates page local data
 // import one from '../assets/template1.png'
 // import two from '../assets/template2.png'

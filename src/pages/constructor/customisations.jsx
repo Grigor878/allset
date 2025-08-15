@@ -3,6 +3,7 @@ import { useTanstack } from "../../hooks/useTanstack";
 import { useNuqs } from "../../hooks/useNuqs";
 import { Loader } from "../../components/loader";
 import { Aside } from "../../components/constructor/aside";
+import { Preview } from "../../components/constructor/preview";
 import { useLanguage } from "../../hooks/useLanguge";
 
 const Customisations = () => {
@@ -16,7 +17,7 @@ const Customisations = () => {
   if (!selectedTemplate) return <Loader />;
 
   return (
-    <Box position={"relative"} minH={"100%"} h="100%" pt="32px" pb="32px">
+    <Box position={"relative"} pt="32px" pb="32px">
       <Container maxW="container.md">
         <Flex gap={"24px"}>
           {/* <Box flex="1">
@@ -30,6 +31,7 @@ const Customisations = () => {
           </Box> */}
 
           <Aside data={selectedTemplate} language={language} />
+          <Preview />
         </Flex>
       </Container>
     </Box>

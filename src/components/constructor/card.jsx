@@ -7,15 +7,21 @@ import { selected } from "../../assets/svgs";
 import { formatUrl } from "../../utils/formatters";
 import { getLanguageKey } from "../../utils/helpers";
 
-export const Template = ({ el }) => {
+export const Card = ({ el }) => {
   const language = useLanguage();
-  
+
   const { id, templateImage, name, description } = el;
 
   const [template, setTemplate] = useNuqs("template");
+  const [_, setPalette] = useNuqs("palette");
 
   const lng = getLanguageKey(language);
   const isSelected = template == id;
+
+  const handleSelect = () => {
+    setTemplate(id);
+    setPalette(null);
+  };
 
   return (
     <Stack
@@ -28,7 +34,8 @@ export const Template = ({ el }) => {
       borderRadius={"12px"}
       transition={".3s ease"}
       _hover={{
-        borderColor: "#F43F5E",
+        // borderColor: "#F43F5E",
+        boxShadow: "0 0 0 2px rgba(244, 63, 94, 0.4)",
         cursor: "pointer",
       }}
       _focus={{
@@ -36,7 +43,7 @@ export const Template = ({ el }) => {
         outline: "none",
       }}
       tabIndex={0}
-      onClick={() => setTemplate(id)}
+      onClick={handleSelect}
     >
       {/* <Box bg={bg} borderTopRadius="12px"> */}
       <Box borderTopRadius="12px">

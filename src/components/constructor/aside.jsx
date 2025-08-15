@@ -9,8 +9,8 @@ export const Aside = ({ data, language }) => {
   return (
     <Box
       as="aside"
-      h="fit-content"
       w="320px"
+      h="fit-content"
       bg="white"
       border="1px solid"
       borderRadius={"8px"}

@@ -3,12 +3,11 @@ import { NavLink } from "react-router-dom";
 import { constructor } from "../../assets/svgs";
 import { Steps } from "./steps";
 import { Language } from "../language";
-import { useNuqs } from "../../hooks/useNuqs";
 import { MidText } from "./texts/midText";
 // import { Auth } from "../../pages/auth";
 
 export const Header = () => {
-  const [_, setTemplate] = useNuqs("template", null);
+  // const [_, setTemplate] = useNuqs("template", null);
 
   return (
     <Box
@@ -29,7 +28,7 @@ export const Header = () => {
         <Flex justify="space-between">
           <Link
             as={NavLink}
-            onClick={() => setTemplate(null)}
+            // onClick={() => setTemplate(null)}
             to=""
             gap="12px"
           >

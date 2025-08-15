@@ -64,3 +64,26 @@ export const isMenuOpen = (path, pathname, state, child) => {
     }
     return false;
 };
+
+export const isContinueDisabled = (pathname, language, values) => {
+    const rules = [
+        {
+            path: `/${language}`,
+            required: ["template"]
+        },
+        {
+            path: `/${language}/customisations`,
+            required: ["template", "palette"]
+        },
+        // {
+        //     path: `/${language}/something-else`,
+        //     required: ["template", "palette"]
+        // },
+    ];
+
+    const matchedRule = rules.find(rule => rule.path === pathname);
+
+    if (!matchedRule) return false;
+
+    return matchedRule.required.some(key => !values[key]);
+};
