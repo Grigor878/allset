@@ -78,6 +78,18 @@ export const responsive = [
   }
 ]
 
+export const styles = [
+  { label: "Casual", value: "casual" },
+  { label: "Formal", value: "formal" },
+  { label: "Black Tie", value: "black_tie" },
+]
+
+export const schemes = [
+  { label: "Light", value: "light" },
+  { label: "Dark", value: "dark" },
+  { label: "Colorful", value: "colorful" },
+]
+
 // templates page local data
 // import one from '../assets/template1.png'
 // import two from '../assets/template2.png'

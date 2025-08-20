@@ -1,8 +1,8 @@
+import { AuthProvider } from "./providers/authProvider";
 import { QueryProvider } from "./providers/queryProvider";
 import { ChakraUIProvider } from "./providers/chakcraProvider";
-import { RouterProvider } from "react-router-dom";
 import { NuqsProvider } from "./providers/nuqsProvider";
-import { AuthProvider } from "./providers/authProvider";
+import { RouterProvider } from "react-router-dom";
 import router from "./router";
 import "./services/i18n/i18n";
 

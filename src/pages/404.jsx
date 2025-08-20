@@ -1,8 +1,9 @@
+import { Box } from "@chakra-ui/react";
 import img from "../assets/404.png";
 
 const NotFound = () => {
   return (
-    <div
+    <Box
       style={{
         backgroundImage: `url(${img})`,
         backgroundSize: "cover",
@@ -10,7 +11,7 @@ const NotFound = () => {
         width: "100%",
         height: "90vh",
       }}
-    ></div>
+    ></Box>
   );
 };
 

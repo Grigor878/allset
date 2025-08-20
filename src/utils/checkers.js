@@ -75,10 +75,10 @@ export const isContinueDisabled = (pathname, language, values) => {
             path: `/${language}/customisations`,
             required: ["template", "palette"]
         },
-        // {
-        //     path: `/${language}/something-else`,
-        //     required: ["template", "palette"]
-        // },
+        {
+            path: `/${language}/details`,
+            required: ["template", "palette"]
+        },
     ];
 
     const matchedRule = rules.find(rule => rule.path === pathname);

@@ -19,6 +19,6 @@ i18next
     },
     react: { useSuspense: true },
     backend: {
-      loadPath: "/languages/{{lng}}/translation.json?date=" + new Date().getTime(),
+      loadPath: "/locales/{{lng}}.json?date=" + new Date().getTime(),
     },
   });

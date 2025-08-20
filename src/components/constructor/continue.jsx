@@ -1,8 +1,8 @@
-import { Button } from "@chakra-ui/react";
-import { NavLink, useLocation, useParams } from "react-router-dom";
-import { getNextRoute, hasMultipleWords } from "../../utils/helpers";
 import { useNuqs } from "../../hooks/useNuqs";
+import { useLocation, useParams, NavLink } from "react-router-dom";
+import { getNextRoute, hasMultipleWords } from "../../utils/helpers";
 import { isContinueDisabled } from "../../utils/checkers";
+import { Button } from "@chakra-ui/react";
 
 export const Continue = () => {
   const [template] = useNuqs("template");
@@ -11,19 +11,38 @@ export const Continue = () => {
   const { pathname } = useLocation();
   const { language } = useParams();
 
-  if (pathname === "/confirm") return;
+  // if (pathname === `/${language}/confirm`) return;
 
   const { path, name } = getNextRoute(pathname);
 
-  return (
+  const disabled = isContinueDisabled(pathname, language, {
+    template,
+    palette,
+  });
+
+  const isDetailsPage = pathname === `/${language}/details`;
+
+  return isDetailsPage ? (
     <Button
-      as={NavLink}
-      to={template ? path : undefined}
-      fontWeight={"400"}
-      fontSize={"14px"}
-      borderRadius={"8px"}
+      type="submit"
+      form="details"
+      fontWeight="400"
+      fontSize="14px"
+      borderRadius="8px"
       bg="#F43F5E"
-      disabled={isContinueDisabled(pathname, language, { template, palette })}
+      disabled={disabled}
+    >
+      {hasMultipleWords(name) ? name : `Continue to ${name}`}
+    </Button>
+  ) : (
+    <Button
+      as={!disabled ? NavLink : "button"}
+      to={!disabled ? path : undefined}
+      fontWeight="400"
+      fontSize="14px"
+      borderRadius="8px"
+      bg="#F43F5E"
+      disabled={disabled}
     >
       {hasMultipleWords(name) ? name : `Continue to ${name}`}
     </Button>

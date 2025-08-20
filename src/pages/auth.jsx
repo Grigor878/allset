@@ -3,26 +3,22 @@ import { Box, Button } from "@chakra-ui/react";
 
 export const Auth = () => {
   const { user, isAuthenticated, loginWithPopup, logout } = useAuth0();
-console.log(user);
+  console.log(user);
 
   return (
     <Box>
-      {user && <User user={user} />}
+      {user && (
+        <Box>
+          {user.given_name}
+          {user.family_name}
+        </Box>
+      )}
       {isAuthenticated ? (
         <Button onClick={logout}>Log-Out</Button>
       ) : (
-        <button onClick={loginWithPopup}>Log-In</button>
+        <Button onClick={loginWithPopup}>Log-In</Button>
         // <Button onClick={loginWithRedirect}>Log-In</Button>
       )}
-    </Box>
-  );
-};
-
-const User = ({ user }) => {
-  return (
-    <Box>
-      {user.given_name}
-      {user.family_name}
     </Box>
   );
 };
