@@ -91,6 +91,8 @@ export const schemes = [
 ]
 
 export const detailsForm = {
+  templateId: "",
+  colorPaletteId: "",
   title: {
     hy: "",
     en: "",

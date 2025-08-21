@@ -13,6 +13,8 @@ import { Dresscode } from "../../components/constructor/dresscode";
 import { Story } from "../../components/constructor/story";
 import { AlbumLink } from "../../components/constructor/ui/albumLink";
 import { detailsForm } from "../../utils/constants";
+import baseApi from "../../services/api/baseApi";
+import { useNuqs } from "../../hooks/useNuqs";
 
 const Details = () => {
   const navigate = useNavigate();
@@ -21,7 +23,13 @@ const Details = () => {
 
   const hiddenFieldsRef = useRef({});
 
-  const [form, setForm] = useState(detailsForm);
+  const [templateId] = useNuqs("template");
+  const [colorPaletteId] = useNuqs("palette");
+  const [form, setForm] = useState({
+    ...detailsForm,
+    templateId,
+    colorPaletteId,
+  });
   console.log(form); //
 
   const handleHide = (key, hidden) => {
@@ -73,11 +81,15 @@ const Details = () => {
   const submit = async (e) => {
     e.preventDefault();
     try {
-      success("Basic Wedding Information Completed.");
-      setForm(detailsForm);
-      navigate(`/${language}/preview`);
+      const { data } = await baseApi.post(`/invitations`, form);
+
+      if (data.status === "ok") {
+        success("Basic Wedding Information Completed.");
+        setForm(detailsForm);
+        navigate(`/${language}/preview`);
+      }
     } catch (err) {
-      error(`Error - ${err?.text}`);
+      error(`Error - ${err}`);
     }
   };
 

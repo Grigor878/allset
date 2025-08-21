@@ -24,6 +24,7 @@ export const Continue = () => {
 
   return isDetailsPage ? (
     <Button
+      // loading
       type="submit"
       form="details"
       fontWeight="400"

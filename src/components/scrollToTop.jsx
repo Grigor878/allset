@@ -38,7 +38,7 @@ export const ScrollToTop = () => {
       fontSize="14px"
       borderRadius="8px"
     >
-      Scroll &#8593;
+      Top &#8593;
     </Button>
   );
 };

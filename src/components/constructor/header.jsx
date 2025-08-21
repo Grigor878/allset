@@ -4,7 +4,7 @@ import { constructor } from "../../assets/svgs";
 import { Steps } from "./steps";
 import { Language } from "../language";
 import { MidText } from "./texts/midText";
-// import { Auth } from "../../pages/auth";
+import { Auth } from "../../pages/auth";
 
 export const Header = () => {
   // const [_, setTemplate] = useNuqs("template", null);
@@ -39,7 +39,7 @@ export const Header = () => {
           <Flex gap="12px">
             <Steps />
             <Language />
-            {/* <Auth /> */}
+            <Auth />
           </Flex>
         </Flex>
       </Container>
