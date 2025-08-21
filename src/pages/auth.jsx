@@ -3,7 +3,7 @@ import { Box, Button } from "@chakra-ui/react";
 
 export const Auth = () => {
   const { user, isAuthenticated, loginWithPopup, logout } = useAuth0();
-  console.log(user);
+  console.log(user);//
 
   return (
     <Box>

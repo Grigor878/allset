@@ -1,10 +1,8 @@
 import { useState } from "react";
 import {
-  Box,
   createListCollection,
   Field,
   Flex,
-  HStack,
   Stack,
   Switch,
   Textarea,
@@ -12,26 +10,59 @@ import {
 import { Label } from "./texts/label";
 import { Selector } from "./ui/selector";
 import { schemes, styles } from "../../utils/constants";
+import { LngSwitcher } from "./ui/lngSwitcher";
 
 export const Dresscode = ({ name, value, onChange, hide, required }) => {
   const [checked, setChecked] = useState(true);
+  const [activeLang, setActiveLang] = useState("hy");
 
   const handleSwitchChange = (e) => {
     setChecked(e.checked);
     hide(name, !e.checked);
   };
 
-  const handleNestedChange = (e) => {
-    const { name, value: inputValue } = e.target;
-    onChange({
-      target: {
-        name: "dresscode",
-        value: {
-          ...value,
-          [name]: inputValue,
-        },
-      },
-    });
+  // const handleNestedChange = (e) => {
+  //   const { name, value: inputValue } = e.target;
+  //   onChange({
+  //     target: {
+  //       name: "dressCode",
+  //       value: {
+  //         ...value,
+  //         [name]: inputValue,
+  //       },
+  //     },
+  //   });
+  // };
+
+  const handleNestedChange = (e, lang) => {
+    if (e?.target) {
+      const { name, value: inputValue } = e.target;
+
+      if (name === "description") {
+        onChange({
+          target: {
+            name: "dressCode",
+            value: {
+              ...value,
+              description: {
+                ...value?.description,
+                [lang]: inputValue,
+              },
+            },
+          },
+        });
+      } else {
+        onChange({
+          target: {
+            name: "dressCode",
+            value: {
+              ...value,
+              [name]: inputValue,
+            },
+          },
+        });
+      }
+    }
   };
 
   return (
@@ -44,11 +75,22 @@ export const Dresscode = ({ name, value, onChange, hide, required }) => {
       gap="16px"
     >
       <Field.Root required={required} gap={"16px"}>
-        <Field.Label as={Flex} w="100%" justify={"space-between"}>
-          <HStack>
-            <Field.RequiredIndicator />
-            <Label text="Dress Code" />
-          </HStack>
+        <Field.Label
+          as={Flex}
+          w="100%"
+          align={"start"}
+          justify={"space-between"}
+        >
+          <Stack>
+            <Flex align={"center"} gap={"4px"}>
+              <Field.RequiredIndicator fontSize="18px" />
+              <Label text={`Dress Code (${activeLang.toUpperCase()})`} />
+            </Flex>
+            <LngSwitcher
+              activeLang={activeLang}
+              setActiveLang={setActiveLang}
+            />
+          </Stack>
           {!required && (
             <Switch.Root
               checked={checked}
@@ -65,8 +107,8 @@ export const Dresscode = ({ name, value, onChange, hide, required }) => {
           h={"66px"}
           resize={"none"}
           name="description"
-          value={value?.description}
-          onChange={handleNestedChange}
+          value={value?.description?.[activeLang] ?? ""}
+          onChange={(e) => handleNestedChange(e, activeLang)}
           disabled={!checked}
           placeholder="Short dress code description"
         />
@@ -80,8 +122,8 @@ export const Dresscode = ({ name, value, onChange, hide, required }) => {
           disabled={!checked}
         />
         <Selector
-          name="scheme"
-          value={value?.scheme}
+          name="colorPaletteId"
+          value={value?.colorPaletteId}
           onChange={handleNestedChange}
           collection={createListCollection({ items: schemes })}
           disabled={!checked}

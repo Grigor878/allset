@@ -1,7 +1,7 @@
 import { Field, Input, Stack, Text } from "@chakra-ui/react";
 import { Label } from "../texts/label";
 
-export const Datepicker = ({ value, onChange, required }) => {
+export const Datepicker = ({ name, value, onChange, required }) => {
   return (
     <Stack
       borderRadius={"8px"}
@@ -13,18 +13,18 @@ export const Datepicker = ({ value, onChange, required }) => {
     >
       <Field.Root required={required} gap={"16px"}>
         <Field.Label>
-          <Field.RequiredIndicator />
+          <Field.RequiredIndicator fontSize="18px" />
           <Label text="Event Date" />
         </Field.Label>
         <Input
           type="date"
-          name="date"
+          name={name}
           variant="outline"
-          value={value}
-          required
+          value={value ?? ""}
           onChange={onChange}
-          borderRadius={"8px"}
           placeholder="Choose date"
+          borderRadius={"8px"}
+          required
         />
       </Field.Root>
 

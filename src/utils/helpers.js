@@ -3,6 +3,15 @@ export const getLanguage = (pathname) => {
   return match ? match[1] : '';
 };
 
+export const getFlagCode = (lang) => {
+  const map = {
+    hy: "am", // Armenian flag
+    en: "gb", // Great Britain flag
+    ru: "ru", // Russian flag
+  };
+  return map[lang] || "un"; 
+};
+
 import { pathWithoutLang } from "./formatters";
 export const getStepInfo = (pathname) => {
   const stepMap = {
@@ -76,7 +85,7 @@ export function getTimeUntil(fullDate) {
     // Return empty object if no date is provided
     return {};
   }
-  
+
   const now = new Date();
   const target = new Date(fullDate); // "YYYY-mm-dd"
 

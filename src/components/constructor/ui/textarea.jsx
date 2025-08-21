@@ -11,9 +11,19 @@ import {
 } from "@chakra-ui/react";
 import { Label } from "../texts/label";
 import { xls } from "../../../assets/svgs";
+import { LngSwitcher } from "./lngSwitcher";
 
-export const TextArea = ({ name, value, onChange, hide, required, text }) => {
+export const TextArea = ({
+  name,
+  value,
+  onChange,
+  hide,
+  required,
+  placeholder,
+  text,
+}) => {
   const [checked, setChecked] = useState(true);
+  const [activeLang, setActiveLang] = useState("hy");
 
   const handleSwitchChange = (e) => {
     setChecked(e.checked);
@@ -30,11 +40,22 @@ export const TextArea = ({ name, value, onChange, hide, required, text }) => {
       gap="16px"
     >
       <Field.Root required={required} gap={"16px"}>
-        <Field.Label as={Flex} w="100%" justify={"space-between"}>
-          <HStack>
-            <Field.RequiredIndicator />
-            <Label text={text} />
-          </HStack>
+        <Field.Label
+          as={Flex}
+          w="100%"
+          align={"start"}
+          justify={"space-between"}
+        >
+          <Stack>
+            <Flex align={"center"} gap={"4px"}>
+              <Field.RequiredIndicator fontSize="18px" />
+              <Label text={`${text} (${activeLang.toUpperCase()})`} />
+            </Flex>
+            <LngSwitcher
+              activeLang={activeLang}
+              setActiveLang={setActiveLang}
+            />
+          </Stack>
           {!required && (
             <Switch.Root
               checked={checked}
@@ -49,16 +70,17 @@ export const TextArea = ({ name, value, onChange, hide, required, text }) => {
         </Field.Label>
 
         <Textarea
-          h={name === "participation" ? "66px" : "90px"}
-          resize={"none"}
           name={name}
-          value={value}
-          onChange={onChange}
+          placeholder={placeholder}
+          value={value?.[activeLang] ?? ""}
+          onChange={(e) => onChange(name, activeLang, e.target.value)}
           disabled={!checked}
+          h={name === "closingText" ? "66px" : "90px"}
+          resize={"none"}
         />
       </Field.Root>
 
-      {name === "participation" && (
+      {name === "closingText" && (
         <Button
           color={"#6B7280"}
           variant="ghost"

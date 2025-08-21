@@ -2,16 +2,17 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useRef, useState } from "react";
 import { Box, Container, Stack } from "@chakra-ui/react";
 import { Expire } from "../../components/constructor/expire";
-import { UrlCreator } from "../../components/constructor/ui/urlCreator";
+import { TitleCreator } from "../../components/constructor/ui/titleCreator";
 import { Datepicker } from "../../components/constructor/ui/datepicker";
 import { TextArea } from "../../components/constructor/ui/textarea";
 import { error, success } from "../../components/alerts";
 import { Photos } from "../../components/constructor/photos";
 import { Counter } from "../../components/constructor/counter";
-import { Info } from "../../components/constructor/info";
+import { Contact } from "../../components/constructor/contact";
 import { Dresscode } from "../../components/constructor/dresscode";
 import { Story } from "../../components/constructor/story";
-import { SharedLink } from "../../components/constructor/ui/sharedLink";
+import { AlbumLink } from "../../components/constructor/ui/albumLink";
+import { detailsForm } from "../../utils/constants";
 
 const Details = () => {
   const navigate = useNavigate();
@@ -20,29 +21,7 @@ const Details = () => {
 
   const hiddenFieldsRef = useRef({});
 
-  const [form, setForm] = useState({
-    url: "",
-    date: "",
-    description: "",
-    mainPhoto: [],
-    participation: "",
-    countdown: true,
-    information: {
-      name: "",
-      phone: "",
-      email: "",
-    },
-    dresscode: {
-      description: "",
-      style: "",
-      scheme: "",
-    },
-    link: "",
-    story: {
-      about: "",
-      imgs: [],
-    },
-  });
+  const [form, setForm] = useState(detailsForm);
   console.log(form); //
 
   const handleHide = (key, hidden) => {
@@ -52,13 +31,14 @@ const Details = () => {
         hiddenFieldsRef.current[key] = updated[key];
         delete updated[key];
       } else {
-        updated[key] = hiddenFieldsRef.current[key] ?? "";
+        updated[key] = hiddenFieldsRef.current[key] || "";
         delete hiddenFieldsRef.current[key];
       }
       return updated;
     });
   };
 
+  // single language
   const handleChange = (e) => {
     setForm({
       ...form,
@@ -66,37 +46,38 @@ const Details = () => {
     });
   };
 
+  // multy language
+  const handleLngChange = (name, lang, value) => {
+    setForm((prev) => ({
+      ...prev,
+      [name]: {
+        ...(prev[name] || { hy: "", ru: "", en: "" }),
+        [lang]: value,
+      },
+    }));
+    // setForm((prev) => {
+    //   if (name === "urlExtension" && lang === null) {
+    //     return { ...prev, [name]: value };
+    //   }
+
+    //   return {
+    //     ...prev,
+    //     [name]: {
+    //       ...(prev[name] || { hy: "", ru: "", en: "" }),
+    //       [lang]: value,
+    //     },
+    //   };
+    // });
+  };
+
   const submit = async (e) => {
     e.preventDefault();
-
     try {
-      success("Your message has been sent.");
+      success("Basic Wedding Information Completed.");
+      setForm(detailsForm);
+      navigate(`/${language}/preview`);
     } catch (err) {
       error(`Error - ${err?.text}`);
-    } finally {
-      setForm({
-        url: "",
-        date: "",
-        description: "",
-        mainPhoto: [],
-        participation: "",
-        countdown: true,
-        information: {
-          name: "",
-          phone: "",
-          email: "",
-        },
-        dresscode: {
-          description: "",
-          style: "",
-          scheme: "",
-        },
-        story: {
-          about: "",
-          imgs: [],
-        },
-      });
-      navigate(`/${language}/preview`);
     }
   };
 
@@ -112,75 +93,84 @@ const Details = () => {
             autoComplete="on"
             onSubmit={submit}
           >
-            <UrlCreator
-              value={form.url}
-              onChange={handleChange}
+            <TitleCreator
+              name="title"
+              value={form.title}
+              onChange={handleLngChange}
+              setForm={setForm}
               required={true}
             />
             <Datepicker
-              value={form.date}
+              name="eventDate"
+              value={form.eventDate}
               onChange={handleChange}
               required={true}
             />
             <TextArea
               name="description"
               value={form.description}
-              onChange={handleChange}
+              onChange={handleLngChange}
               required={true}
+              placeholder="Join us as we celebrate our love and commitment..."
               text="Short Description"
             />
             <Photos
-              onFileSelect={(file) =>
-                setForm((prev) => ({ ...prev, mainPhoto: file }))
-              }
+              // onFileSelect={(file) =>
+              //   setForm((prev) => ({ ...prev, mainImages: file }))
+              // }
+              name="mainImages"
+              onChange={handleChange}
               required={true}
             />
             <TextArea
-              name="participation"
-              value={form.participation}
-              onChange={handleChange}
+              name="closingText"
+              value={form.closingText}
+              onChange={handleLngChange}
               hide={handleHide}
               required={false}
+              placeholder="Please confirm your attendance by [date]"
               text="Confirm Participation"
             />
             <Counter
-              name="countdown"
+              name="countDown"
+              value={form.eventDate}
               hide={handleHide}
-              date={form.date}
               required={false}
             />
-            <Info
-              value={form.information}
+            <Contact
+              name="connectWithUs"
+              value={form.connectWithUs}
               onChange={handleChange}
+              hide={handleHide}
               required={false}
             />
             <Dresscode
-              name="dresscode"
-              value={form.dresscode}
+              name="dressCode"
+              value={form.dressCode}
               onChange={handleChange}
               hide={handleHide}
               required={false}
             />
-            <SharedLink
-              name="link"
-              value={form.link}
+            <AlbumLink
+              name="albumLink"
+              value={form.albumLink}
               onChange={handleChange}
               hide={handleHide}
               required={false}
             />
             <Story
-              name="story"
-              value={form.story}
+              name="ourStory"
+              value={form.ourStory}
               onChange={handleChange}
-              onFileSelect={(files) =>
-                setForm((prev) => ({
-                  ...prev,
-                  story: {
-                    ...prev.story,
-                    imgs: files,
-                  },
-                }))
-              }
+              // onFileSelect={(files) =>
+              //   setForm((prev) => ({
+              //     ...prev,
+              //     ourStory: {
+              //       ...prev.ourStory,
+              //       photoUrls: files,
+              //     },
+              //   }))
+              // }
               hide={handleHide}
               required={false}
             />

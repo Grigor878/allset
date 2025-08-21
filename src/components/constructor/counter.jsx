@@ -12,10 +12,10 @@ import { Label } from "./texts/label";
 import { getTimeUntil } from "../../utils/helpers";
 import { isNotEmptyObject } from "../../utils/checkers";
 
-export const Counter = ({ name, hide, date, required }) => {
+export const Counter = ({ name, value, hide, required }) => {
   const [checked, setChecked] = useState(true);
 
-  const remaining = getTimeUntil(date);
+  const remaining = getTimeUntil(value);
 
   const handleSwitchChange = (e) => {
     setChecked(e.checked);
@@ -58,7 +58,7 @@ export const Counter = ({ name, hide, date, required }) => {
             </Text>
           }
         >
-          {!remaining.expired && (
+          {!remaining?.expired && (
             <Flex gap="5px">
               <Text textStyle="sm" color="#6B7280">
                 {remaining?.days} Days
@@ -72,7 +72,7 @@ export const Counter = ({ name, hide, date, required }) => {
             </Flex>
           )}
 
-          {remaining.expired && (
+          {remaining?.expired && (
             <Text textStyle="sm" color="#6B7280">
               Expired date
             </Text>

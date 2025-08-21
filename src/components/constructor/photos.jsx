@@ -3,7 +3,16 @@ import { uploadAvatar } from "../../assets/svgs";
 import { Label } from "./texts/label";
 import { FileUploadList } from "./ui/filleUpload";
 
-export const Photos = ({ onFileSelect, required }) => {
+export const Photos = ({ name, onChange, required }) => {
+  const handleFileSelect = (files) => {
+    onChange({
+      target: {
+        name,
+        value: files ?? [],
+      },
+    });
+  };
+
   return (
     <Stack
       borderRadius={"8px"}
@@ -29,7 +38,7 @@ export const Photos = ({ onFileSelect, required }) => {
             {/* <Box color="fg.muted">.png, .jpg up to 5MB</Box> */}
           </FileUpload.DropzoneContent>
         </FileUpload.Dropzone>
-        <FileUploadList onFileSelect={onFileSelect} />
+        <FileUploadList onFileSelect={handleFileSelect} />
       </FileUpload.Root>
     </Stack>
   );

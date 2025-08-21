@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Field, Flex, HStack, Input, Stack, Switch } from "@chakra-ui/react";
 import { Label } from "../texts/label";
 
-export const SharedLink = ({ name, value, onChange, hide, required }) => {
+export const AlbumLink = ({ name, value, onChange, hide, required }) => {
   const [checked, setChecked] = useState(true);
 
   const handleSwitchChange = (e) => {
@@ -39,15 +39,15 @@ export const SharedLink = ({ name, value, onChange, hide, required }) => {
         </Field.Label>
 
         <Input
-          name="link"
+          name={name}
           variant="outline"
-          value={value}
-          required
+          value={value ?? ""}
           onChange={onChange}
           borderRadius={"8px"}
           placeholder="Google Drive / shared folder link"
-          //   disabled={!checked}
-          disabled={true}
+          required={required}
+          disabled={!checked}
+          // disabled={true}
         />
       </Field.Root>
     </Stack>

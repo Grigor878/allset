@@ -1,11 +1,12 @@
 import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
-// import { Aside } from "./aside";
 import { Box } from "@chakra-ui/react";
 import { Header } from "./header";
 import { Footer } from "./footer";
 import { TopPart } from "./topPart";
 import { Loader } from "../loader";
+import { ScrollToTop } from "../scrollToTop";
+import AutoScroll from "../../utils/autoScroll";
 
 const Layout = () => {
   return (
@@ -13,12 +14,14 @@ const Layout = () => {
       <Header />
       <TopPart />
       <Suspense fallback={<Loader />}>
-      {/* <Suspense fallback={null}> */}
+        {/* <Suspense fallback={null}> */}
         {/* <Box as="main" flex="1" p={4}> */}
         <Outlet />
         {/* </Box> */}
       </Suspense>
       <Footer />
+      <ScrollToTop />
+      <AutoScroll />
     </Box>
   );
 };

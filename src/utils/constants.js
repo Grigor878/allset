@@ -90,6 +90,52 @@ export const schemes = [
   { label: "Colorful", value: "colorful" },
 ]
 
+export const detailsForm = {
+  title: {
+    hy: "",
+    en: "",
+    ru: ""
+  },
+  urlExtension: "",
+  eventDate: "",
+  description: {
+    hy: "",
+    en: "",
+    ru: ""
+  },
+  mainImages: [],
+  closingText: {
+    hy: "",
+    en: "",
+    ru: ""
+  },
+  countDown: true,
+  connectWithUs: {
+    // description: "",
+    name: "",
+    phone: "",
+    email: "",
+  },
+  dressCode: {
+    description: {
+      hy: "",
+      en: "",
+      ru: ""
+    },
+    style: "",
+    colorPaletteId: "",
+  },
+  albumLink: "",
+  ourStory: {
+    text: {
+      hy: "",
+      en: "",
+      ru: ""
+    },
+    photoUrls: [],
+  },
+}
+
 // templates page local data
 // import one from '../assets/template1.png'
 // import two from '../assets/template2.png'

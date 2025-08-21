@@ -2,7 +2,6 @@ import {
   Field,
   FileUpload,
   Flex,
-  HStack,
   Icon,
   Stack,
   Switch,
@@ -13,30 +12,39 @@ import { story } from "../../assets/svgs";
 import { Label } from "./texts/label";
 import { FileUploadList } from "./ui/filleUpload";
 import { useState } from "react";
+import { LngSwitcher } from "./ui/lngSwitcher";
 
-export const Story = ({
-  name,
-  value,
-  onChange,
-  onFileSelect,
-  hide,
-  required,
-}) => {
+export const Story = ({ name, value, onChange, hide, required }) => {
   const [checked, setChecked] = useState(true);
+  const [activeLang, setActiveLang] = useState("hy");
 
   const handleSwitchChange = (e) => {
     setChecked(e.checked);
     hide(name, !e.checked);
   };
 
-  const handleNestedChange = (e) => {
-    const { name, value: inputValue } = e.target;
+  const handleNestedChange = (e, lang) => {
     onChange({
       target: {
-        name: "story",
+        name: name,
         value: {
           ...value,
-          [name]: inputValue,
+          text: {
+            ...value?.text,
+            [lang]: e.target.value,
+          },
+        },
+      },
+    });
+  };
+
+  const handleFileSelect = (files) => {
+    onChange({
+      target: {
+        name,
+        value: {
+          ...value,
+          photoUrls: files,
         },
       },
     });
@@ -52,11 +60,22 @@ export const Story = ({
       gap="16px"
     >
       <Field.Root required={required}>
-        <Field.Label as={Flex} w="100%" justify={"space-between"}>
-          <HStack>
-            <Field.RequiredIndicator />
-            <Label text="Our Story" />
-          </HStack>
+        <Field.Label
+          as={Flex}
+          w="100%"
+          align={"start"}
+          justify={"space-between"}
+        >
+          <Stack>
+            <Flex align={"center"} gap={"4px"}>
+              <Field.RequiredIndicator fontSize="18px" />
+              <Label text={`Our Story (${activeLang.toUpperCase()})`} />
+            </Flex>
+            <LngSwitcher
+              activeLang={activeLang}
+              setActiveLang={setActiveLang}
+            />
+          </Stack>
           {!required && (
             <Switch.Root
               checked={checked}
@@ -73,9 +92,9 @@ export const Story = ({
       <Textarea
         h="114px"
         resize={"none"}
-        name="about"
-        value={value?.about}
-        onChange={handleNestedChange}
+        name="text"
+        value={value?.text?.[activeLang] ?? ""}
+        onChange={(e) => handleNestedChange(e, activeLang)}
         disabled={!checked}
         placeholder="Tell your couple's story..."
       />
@@ -89,7 +108,7 @@ export const Story = ({
             {/* <Box color="fg.muted">.png, .jpg up to 5MB</Box> */}
           </FileUpload.DropzoneContent>
         </FileUpload.Dropzone>
-        <FileUploadList onFileSelect={onFileSelect} />
+        <FileUploadList onFileSelect={handleFileSelect} />
       </FileUpload.Root>
     </Stack>
   );
