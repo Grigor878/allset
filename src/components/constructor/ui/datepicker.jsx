@@ -22,6 +22,7 @@ export const Datepicker = ({ name, value, onChange, required }) => {
           variant="outline"
           value={value ?? ""}
           onChange={onChange}
+          onClick={(e) => e.target.showPicker()}
           placeholder="Choose date"
           borderRadius={"8px"}
           required

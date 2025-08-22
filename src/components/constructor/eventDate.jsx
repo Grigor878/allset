@@ -2,6 +2,7 @@ import { Box, Field, Icon, Input, Stack } from "@chakra-ui/react";
 import { Label } from "./texts/label";
 import { date } from "../../assets/svgs";
 import { SubText } from "./texts/subText";
+import { DatePicker } from "./dayPicker";
 
 export const EventDate = () => {
   return (
@@ -24,13 +25,15 @@ export const EventDate = () => {
             fs="14px"
             text="Once you publish your invitation, the event date will be permanently locked and cannot be modified. Please ensure your date is correct:"
           />
-          <Input
+          {/* <Input
             type="date"
             name="name"
             variant="outline"
-            defaultValue='2026-05-29'
+            defaultValue="2026-05-29"
             borderRadius="8px"
-          />
+            onClick={(e) => e.target.showPicker()}
+          /> */}
+          <DatePicker />
           <SubText
             fs="14px"
             text="If you need to change the date, please go back and update it before publishing."

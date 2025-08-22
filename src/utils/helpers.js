@@ -149,3 +149,7 @@ export function getTimeUntil(fullDate) {
     expired: false,
   };
 }
+
+export const currentYear = new Date().getFullYear();
+
+export const today = new Date();

@@ -1,20 +1,29 @@
 import { Checkbox, Link } from "@chakra-ui/react";
-import cookies from "js-cookie";
 import { NavLink, useParams } from "react-router-dom";
+import { useNuqs } from "../../hooks/useNuqs";
 
 export const Legal = () => {
   const { language } = useParams();
 
-  const handleChange = (e) => {
-    if (e.checked) {
-      cookies.set("allset_legal_accept", true);
-    } else {
-      cookies.remove("allset_legal_accept");
-    }
+  const [accept, setAccept] = useNuqs("accept");
+
+  const handleChange = (value) => {
+    const checked =
+      typeof value === "object" && "checked" in value ? value.checked : value;
+    setAccept(checked);
   };
 
   return (
-    <Checkbox.Root size="sm" colorPalette="pink" onCheckedChange={handleChange}>
+    <Checkbox.Root
+      size="sm"
+      colorPalette="pink"
+      // defaultChecked={Boolean(accept)}
+      defaultChecked={accept == "true" ? true : false}
+      onCheckedChange={handleChange}
+      // onCheckedChange={(e) => setAccept(!!e.accept)}
+      // defaultChecked={accept}
+      // onCheckedChange={setAccept}
+    >
       <Checkbox.HiddenInput />
       <Checkbox.Control />
       <Checkbox.Label

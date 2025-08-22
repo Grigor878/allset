@@ -7,6 +7,7 @@ import { Button } from "@chakra-ui/react";
 export const Continue = () => {
   const [template] = useNuqs("template");
   const [palette] = useNuqs("palette");
+  const [accept] = useNuqs("accept");
 
   const { pathname } = useLocation();
   const { language } = useParams();
@@ -48,7 +49,7 @@ export const Continue = () => {
       fontSize="14px"
       borderRadius="8px"
       bg="#F43F5E"
-      disabled={disabled}
+      disabled={disabled && !(accept == true || accept === "true")}
     >
       {name}
     </Button>
