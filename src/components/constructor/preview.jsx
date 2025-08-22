@@ -30,7 +30,10 @@ export const Preview = () => {
       <Flex justify={"space-between"} p={"16px 25px"}>
         <Stack gap={"0px"}>
           <MidText text="Template Preview" />
-          <SubText text="See how your wedding invitation will look with the selected color palette" />
+          <SubText
+            fs="14px"
+            text="See how your wedding invitation will look with the selected color palette"
+          />
         </Stack>
 
         <HStack>

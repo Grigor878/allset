@@ -1,8 +1,9 @@
 import { Text } from "@chakra-ui/react";
 
-export const SubText = ({ text }) => {
+export const SubText = ({ text, fs }) => {
   return (
     <Text
+      fontSize={fs ?? fs}
       fontWeight={400}
       color="#4B5563"
       lineHeight={"24px"}

@@ -1,28 +1,3 @@
-// import { useAuth0 } from "@auth0/auth0-react";
-// import { Box, Button } from "@chakra-ui/react";
-
-// export const Auth = () => {
-//   const { user, isAuthenticated, loginWithPopup, logout } = useAuth0();
-//   console.log(user);
-
-//   return (
-//     <Box>
-//       {user && (
-//         <Box>
-//           {user.given_name}
-//           {user.family_name}
-//         </Box>
-//       )}
-//       {isAuthenticated ? (
-//         <Button onClick={logout}>Log-Out</Button>
-//       ) : (
-//         <Button onClick={loginWithPopup}>Log-In</Button>
-//         // <Button onClick={loginWithRedirect}>Log-In</Button>
-//       )}
-//     </Box>
-//   );
-// };
-
 import { useAuth0 } from "@auth0/auth0-react";
 import {
   Avatar,
@@ -67,7 +42,7 @@ export const Auth = () => {
       </Menu.Trigger> */}
       <Menu.Trigger asChild>
         {user ? (
-          <Button variant="plain" p={0}>
+          <Button variant="ghost" p={0}>
             <Avatar.Root size="xs">
               <Avatar.Fallback name={user?.given_name} />
               <Avatar.Image src={user?.picture || ""} />
@@ -77,7 +52,7 @@ export const Auth = () => {
             </Avatar.Root>
           </Button>
         ) : (
-          <Button variant="outline" onClick={loginWithPopup}>
+          <Button variant="ghost" onClick={loginWithPopup}>
             {isLoading ? <Spinner /> : "Log-In"}
           </Button>
         )}
@@ -86,14 +61,14 @@ export const Auth = () => {
       <Portal>
         <Menu.Positioner>
           <Show when={user}>
-            <Menu.Content w="auto" minW="unset">
-              <Menu.Item>
-                <Button w="100%" as={NavLink} variant="outline" to="profile">
+            <Menu.Content w="auto" minW="unset" autoFocus>
+              <Menu.Item p="0">
+                <Button as={NavLink} to="profile" variant="ghost" w="100%">
                   Profile
                 </Button>
               </Menu.Item>
-              <Menu.Item>
-                <Button w="100%" variant="outline" onClick={logout}>
+              <Menu.Item p="0">
+                <Button onClick={logout} variant="ghost" w="100%">
                   Log-Out
                 </Button>
               </Menu.Item>

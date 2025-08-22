@@ -18,6 +18,14 @@ export const languages = [
   },
 ]
 
+export const steps = {
+  "/": 1,
+  "/customisations": 1,
+  "/details": 2,
+  "/preview": 3,
+  "/confirm": 4,
+};
+
 export const routes = [
   { path: "/", name: "Themes" },
   { path: "/customisations", name: "Customisations" },
@@ -37,8 +45,7 @@ export const contentMap = {
     title: "Choose Your Template",
     text: "Select a beautiful template that matches your wedding style. You can customize colors and content in the next steps.",
     img: allset,
-  }
-  ,
+  },
   "/details": {
     title: "Basic Wedding Information",
     text: "Let's start by gathering the essential details about your special day",

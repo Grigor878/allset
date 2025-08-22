@@ -4,6 +4,7 @@ import cookies from "js-cookie";
 import Layout from "../components/constructor/layout";
 import NotFound from "../pages/404";
 
+
 const Invitation = lazy(() => import("../pages/invitation"));
 const Templates = lazy(() => import("../pages/constructor/templates"));
 const Customisations = lazy(() =>
@@ -12,6 +13,8 @@ const Customisations = lazy(() =>
 const Details = lazy(() => import("../pages/constructor/details"));
 const Preview = lazy(() => import("../pages/constructor/preview"));
 const Confirm = lazy(() => import("../pages/constructor/confirm"));
+const Terms = lazy(() => import("../pages/legal/terms"));
+const Policy = lazy(() => import("../pages/legal/policy"));
 
 const router = createBrowserRouter([
   {
@@ -46,6 +49,14 @@ const router = createBrowserRouter([
       {
         path: "confirm",
         element: <Confirm />,
+      },
+      {
+        path: "terms-of-service",
+        element: <Terms />,
+      },
+      {
+        path: "privacy-policy",
+        element: <Policy />,
       },
     ],
   },

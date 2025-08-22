@@ -5,7 +5,9 @@ import { getStepInfo } from "../../utils/helpers";
 export const Steps = () => {
   const { pathname } = useLocation();
 
-  const { step, value } = getStepInfo(pathname);
+  const { step, value, show } = getStepInfo(pathname);
+
+  if (!show) return null;
 
   return (
     <Flex align="center" gap="8px">
@@ -13,7 +15,7 @@ export const Steps = () => {
         Step {step} of 4
       </Text>
 
-      <Slider.Root width="128px" colorPalette="pink" value={[value]} >
+      <Slider.Root width="128px" colorPalette="pink" value={[value]}>
         <Slider.Control>
           <Slider.Track>
             <Slider.Range />

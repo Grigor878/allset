@@ -9,51 +9,88 @@ export const getFlagCode = (lang) => {
     en: "gb", // Great Britain flag
     ru: "ru", // Russian flag
   };
-  return map[lang] || "un"; 
+  return map[lang] || "un";
 };
 
+import { steps } from "./constants";
 import { pathWithoutLang } from "./formatters";
+
 export const getStepInfo = (pathname) => {
-  const stepMap = {
-    "/": 1,
-    "/customisations": 1,
-    "/details": 2,
-    "/preview": 3,
+  const step = steps[pathWithoutLang(pathname)];
+  if (!step) return { show: false };
+
+  return {
+    step,
+    value: (step / 4) * 100,
+    show: true,
   };
 
-  const step = stepMap[pathWithoutLang(pathname)] || 4;
-  const valuePerStep = 25;
-  const value = step * valuePerStep;
+  // const step = stepMap[pathWithoutLang(pathname)] || 4;
+  // const valuePerStep = 25;
+  // const value = step * valuePerStep;
 
-  return { step, value };
+  // return { step, value };
 };
 
 import { routes } from "./constants";
+
 export const getPreviousRoute = (pathname) => {
+  // const language = getLanguage(pathname);
+  // const cleanPath = pathWithoutLang(pathname);
+
+  // const index = routes.findIndex((r) => r.path === cleanPath);
+  // const prevRoute = index > 0 ? routes[index - 1] : routes[0];
+
+  // return { path: `/${language}${prevRoute.path}`, name: prevRoute.name };
   const language = getLanguage(pathname);
   const cleanPath = pathWithoutLang(pathname);
 
-  const index = routes.findIndex((r) => r.path === cleanPath);
-  const prevRoute = index > 0 ? routes[index - 1] : routes[0];
+  const stepRoutes = routes.filter(r =>
+    ["/", "/customisations", "/details", "/preview", "/confirm"].includes(r.path)
+  );
 
-  return { path: `/${language}${prevRoute.path}`, name: prevRoute.name };
+  const index = stepRoutes.findIndex(r => r.path === cleanPath);
+
+  if (index <= 0) return null;
+
+  const prevRoute = stepRoutes[index - 1];
+  return {
+    path: `/${language}${prevRoute.path}`,
+    name: prevRoute.name,
+  };
 };
 
 export const getNextRoute = (pathname) => {
+  // const language = getLanguage(pathname);
+  // const cleanPath = pathWithoutLang(pathname);
+
+  // const index = routes.findIndex((r) => r.path === cleanPath);
+  // const nextRoute = index >= 0 && index < routes.length - 1 ? routes[index + 1] : routes[routes.length - 1];
+
+  // return { path: `/${language}${nextRoute.path}`, name: nextRoute.name };
   const language = getLanguage(pathname);
   const cleanPath = pathWithoutLang(pathname);
 
-  const index = routes.findIndex((r) => r.path === cleanPath);
-  const nextRoute = index >= 0 && index < routes.length - 1 ? routes[index + 1] : routes[routes.length - 1];
+  const stepRoutes = routes.filter(r =>
+    ["/", "/customisations", "/details", "/preview", "/confirm", "/payment"].includes(r.path)
+  );
+  
+  const index = stepRoutes.findIndex(r => r.path === cleanPath);
 
-  return { path: `/${language}${nextRoute.path}`, name: nextRoute.name };
+  if (index === -1 || index === stepRoutes.length - 1) return null;
+
+  const nextRoute = stepRoutes[index + 1];
+  return {
+    path: `/${language}${nextRoute.path}`,
+    name: nextRoute.name,
+  };
 };
 
-export const hasMultipleWords = (text) => {
-  if (!text || typeof text !== "string") return false;
-  const words = text.trim().split(/\s+/);
-  return words.length > 1;
-};
+// export const hasMultipleWords = (text) => {
+//   if (!text || typeof text !== "string") return false;
+//   const words = text.trim().split(/\s+/);
+//   return words.length > 1;
+// };
 
 import { localesRegex } from "./regex";
 export const navigateWithLocal = (pathname) =>

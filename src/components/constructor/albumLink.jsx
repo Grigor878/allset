@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Field, Flex, HStack, Input, Stack, Switch } from "@chakra-ui/react";
-import { Label } from "../texts/label";
+import { Label } from "./texts/label";
 
 export const AlbumLink = ({ name, value, onChange, hide, required }) => {
   const [checked, setChecked] = useState(true);

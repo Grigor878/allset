@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Button,
   ButtonGroup,
@@ -7,11 +8,10 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
-import { BASE_URL } from "../../../services/api/config";
-import { Label } from "../texts/label";
-import { useState } from "react";
-import { LngSwitcher } from "./lngSwitcher";
-import { cleanUrlExtension } from "../../../utils/formatters";
+import { BASE_URL } from "../../services/api/config";
+import { Label } from "./texts/label";
+import { LngSwitcher } from "./ui/lngSwitcher";
+import { cleanUrlExtension } from "../../utils/formatters";
 
 export const TitleCreator = ({ name, value, onChange, required, setForm }) => {
   const [activeLang, setActiveLang] = useState("hy");
@@ -60,7 +60,7 @@ export const TitleCreator = ({ name, value, onChange, required, setForm }) => {
 
       <Flex borderRadius={"4px"} p="12px" bg="#F9FAFB">
         <Text textStyle="sm" color={"#6B7280"}>
-          URL Preview: {BASE_URL}/
+          URL Preview: {BASE_URL}
         </Text>
         <Text textStyle="sm" color={"#E85A6B"}>
           {cleanUrlExtension(value?.["en"]) ?? ""}
