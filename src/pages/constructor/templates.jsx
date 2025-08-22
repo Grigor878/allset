@@ -1,11 +1,11 @@
 import { Box, Container, Flex, For } from "@chakra-ui/react";
 import { Card } from "../../components/constructor/card";
 // import { templates } from "../../utils/constants";
-import { useTanstack } from "../../hooks/useTanstack";
+import { useGetTanstack } from "../../hooks/useTanstack";
 import { Loader } from "../../components/loader";
 
 const Templates = () => {
-  const { isLoading, data } = useTanstack("templates");
+  const { isLoading, data } = useGetTanstack("templates");
 
   if (isLoading) return <Loader />;
 

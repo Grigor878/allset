@@ -18,6 +18,7 @@ const Confirm = () => {
   const submit = async (e) => {
     e.preventDefault();
     try {
+      alert(159);
       const { data } = await baseApi.post(`/invitations`, form);
 
       if (data.status === "ok") {
@@ -43,9 +44,9 @@ const Confirm = () => {
           >
             <TitleDemo />
             <EventDate />
-            <Promocode />
-            <Legal />
           </Stack>
+          <Promocode />
+          <Legal />
         </Stack>
       </Container>
     </Box>

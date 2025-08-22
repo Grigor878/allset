@@ -1,5 +1,5 @@
-import { Box, Container, Flex, Text, VStack, HStack } from "@chakra-ui/react";
-import { useTanstack } from "../../hooks/useTanstack";
+import { Box, Container, Flex } from "@chakra-ui/react";
+import { useGetTanstack } from "../../hooks/useTanstack";
 import { useNuqs } from "../../hooks/useNuqs";
 import { Loader } from "../../components/loader";
 import { Aside } from "../../components/constructor/aside";
@@ -9,7 +9,7 @@ import { useLanguage } from "../../hooks/useLanguge";
 const Customisations = () => {
   const language = useLanguage();
 
-  const { data } = useTanstack("templates");
+  const { data } = useGetTanstack("templates");
   const [template] = useNuqs("template");
 
   const selectedTemplate = data?.find((item) => item.id === template) || [];
