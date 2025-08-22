@@ -32,7 +32,6 @@ export const DatePicker = () => {
               readOnly
               placeholder="Choose date"
               onClick={() => setOpen(true)}
-              startDecorator={<Icon>📅</Icon>}
             />
           </InputGroup>
         </Dialog.Trigger>
