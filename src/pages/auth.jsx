@@ -42,7 +42,7 @@ export const Auth = () => {
       </Menu.Trigger> */}
       <Menu.Trigger asChild>
         {user ? (
-          <Button variant="ghost" p={0}>
+          <Button variant="ghost" p="0 8px">
             <Avatar.Root size="xs">
               <Avatar.Fallback name={user?.given_name} />
               <Avatar.Image src={user?.picture || ""} />
@@ -52,7 +52,7 @@ export const Auth = () => {
             </Avatar.Root>
           </Button>
         ) : (
-          <Button variant="ghost" onClick={loginWithPopup}>
+          <Button p="0 8px" variant="ghost" onClick={loginWithPopup}>
             {isLoading ? <Spinner /> : "Log-In"}
           </Button>
         )}
@@ -68,7 +68,7 @@ export const Auth = () => {
                 </Button>
               </Menu.Item>
               <Menu.Item p="0">
-                <Button onClick={logout} variant="ghost" w="100%">
+                <Button  onClick={logout} variant="ghost" w="100%">
                   Log-Out
                 </Button>
               </Menu.Item>

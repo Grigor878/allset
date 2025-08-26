@@ -18,7 +18,7 @@ export const Steps = () => {
       <Slider.Root width="128px" colorPalette="pink" value={[value]}>
         <Slider.Control>
           <Slider.Track>
-            <Slider.Range />
+            <Slider.Range bg="#F43F5E" />
           </Slider.Track>
           {/* <Slider.Thumbs /> */}
         </Slider.Control>

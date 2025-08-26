@@ -5,7 +5,7 @@ import { success, error } from "../../components/alerts";
 import baseApi from "../../services/api/baseApi";
 import { Promocode } from "../../components/constructor/promocode";
 import { TitleDemo } from "../../components/constructor/titleDemo";
-import { EventDate } from "../../components/constructor/eventDate";
+import { ConfirmDate } from "../../components/constructor/confirmDate";
 import { Legal } from "../../components/constructor/legal";
 
 const Confirm = () => {
@@ -43,7 +43,7 @@ const Confirm = () => {
             onSubmit={submit}
           >
             <TitleDemo />
-            <EventDate />
+            <ConfirmDate />
           </Stack>
           <Promocode />
           <Legal />

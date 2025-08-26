@@ -4,7 +4,7 @@ import { getFlagCode } from "../../../utils/helpers";
 
 export const LngSwitcher = ({ activeLang, setActiveLang }) => {
   return (
-    <ButtonGroup size="sm" variant="outline">
+    <ButtonGroup size="sm"  variant="outline">
       {locales?.map((lng) => (
         <Button
           key={lng}
@@ -12,10 +12,10 @@ export const LngSwitcher = ({ activeLang, setActiveLang }) => {
           variant={activeLang === lng ? "subtle" : "ghost"}
         >
           <Image
+            boxSize="24px"
             src={`https://flagcdn.com/${getFlagCode(lng)}.svg`}
-            boxSize="20px"
             alt={lng}
-            borderRadius="sm"
+            // borderRadius="sm"
           />
           {/* {lng?.toUpperCase()} */}
         </Button>

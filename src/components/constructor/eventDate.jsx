@@ -1,10 +1,8 @@
-import { Box, Field, Icon, Input, Stack } from "@chakra-ui/react";
+import { Field, Stack, Text } from "@chakra-ui/react";
 import { Label } from "./texts/label";
-import { date } from "../../assets/svgs";
-import { SubText } from "./texts/subText";
-import { DatePicker } from "./dayPicker";
+import { Calendar } from "./ui/calendar";
 
-export const EventDate = () => {
+export const EventDate = ({ name, value, onChange, required }) => {
   return (
     <Stack
       borderRadius={"8px"}
@@ -12,34 +10,35 @@ export const EventDate = () => {
       borderColor={"#E5E7EB"}
       bg="white"
       p="25px"
-      gap="16px"
+      //   gap="9px"
     >
-      <Field.Root gap="16px">
-        <Field.Label gap="16px">
-          <Icon>{date.icon}</Icon>
-          <Label text="Important: Date Cannot Be Changed After Publishing" />
+      <Field.Root required={required} gap={"16px"}>
+        <Field.Label>
+          <Field.RequiredIndicator fontSize="18px" />
+          <Label text="Event Date" />
         </Field.Label>
 
-        <Stack w="100%" gap="12px" pl="40px">
-          <SubText
-            fs="14px"
-            text="Once you publish your invitation, the event date will be permanently locked and cannot be modified. Please ensure your date is correct:"
-          />
-          {/* <Input
-            type="date"
-            name="name"
-            variant="outline"
-            defaultValue="2026-05-29"
-            borderRadius="8px"
-            onClick={(e) => e.target.showPicker()}
-          /> */}
-          <DatePicker />
-          <SubText
-            fs="14px"
-            text="If you need to change the date, please go back and update it before publishing."
-          />
-        </Stack>
+        {/* <Input
+          type="date"
+          name={name}
+          variant="outline"
+          value={value ?? ""}
+          onChange={onChange}
+          onClick={(e) => e.target.showPicker()}
+          placeholder="Choose date"
+          borderRadius={"8px"}
+          required
+        /> */}
       </Field.Root>
+      <Calendar
+        name={name}
+        value={value}
+        onChange={onChange}
+        required={required}
+      />
+      <Text textStyle="xs" color={"#6B7280"}>
+        You can edit the date until the invitation is published.
+      </Text>
     </Stack>
   );
 };

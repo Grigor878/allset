@@ -1,16 +1,9 @@
 import { useState } from "react";
-import {
-  Field,
-  Flex,
-  HStack,
-  Show,
-  Stack,
-  Switch,
-  Text,
-} from "@chakra-ui/react";
+import { Field, Flex, HStack, Show, Stack, Text } from "@chakra-ui/react";
 import { Label } from "./texts/label";
 import { getTimeUntil } from "../../utils/helpers";
 import { isNotEmptyObject } from "../../utils/checkers";
+import { Switcher } from "./ui/switcher";
 
 export const Counter = ({ name, value, hide, required }) => {
   const [checked, setChecked] = useState(true);
@@ -38,15 +31,7 @@ export const Counter = ({ name, value, hide, required }) => {
             <Label text="Countdown" />
           </HStack>
           {!required && (
-            <Switch.Root
-              checked={checked}
-              onCheckedChange={handleSwitchChange}
-              size="lg"
-              colorPalette="pink"
-            >
-              <Switch.HiddenInput />
-              <Switch.Control />
-            </Switch.Root>
+            <Switcher checked={checked} onChange={handleSwitchChange} />
           )}
         </Field.Label>
 

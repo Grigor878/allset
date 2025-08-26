@@ -4,13 +4,13 @@ import {
   Field,
   Flex,
   Stack,
-  Switch,
   Textarea,
 } from "@chakra-ui/react";
 import { Label } from "./texts/label";
 import { Selector } from "./ui/selector";
 import { schemes, styles } from "../../utils/constants";
 import { LngSwitcher } from "./ui/lngSwitcher";
+import { Switcher } from "./ui/switcher";
 
 export const Dresscode = ({ name, value, onChange, hide, required }) => {
   const [checked, setChecked] = useState(true);
@@ -92,15 +92,7 @@ export const Dresscode = ({ name, value, onChange, hide, required }) => {
             />
           </Stack>
           {!required && (
-            <Switch.Root
-              checked={checked}
-              onCheckedChange={handleSwitchChange}
-              size="lg"
-              colorPalette="pink"
-            >
-              <Switch.HiddenInput />
-              <Switch.Control />
-            </Switch.Root>
+            <Switcher checked={checked} onChange={handleSwitchChange} />
           )}
         </Field.Label>
         <Textarea

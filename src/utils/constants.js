@@ -18,6 +18,14 @@ export const languages = [
   },
 ]
 
+import { enUS, ru, hy } from "react-day-picker/locale";
+
+export const calenarLocales = {
+  en: enUS,
+  hy: hy,
+  ru: ru,
+};
+
 export const steps = {
   "/": 1,
   "/customisations": 1,

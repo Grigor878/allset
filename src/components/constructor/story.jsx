@@ -4,7 +4,6 @@ import {
   Flex,
   Icon,
   Stack,
-  Switch,
   Text,
   Textarea,
 } from "@chakra-ui/react";
@@ -13,6 +12,7 @@ import { Label } from "./texts/label";
 import { FileUploadList } from "./ui/filleUpload";
 import { useState } from "react";
 import { LngSwitcher } from "./ui/lngSwitcher";
+import { Switcher } from "./ui/switcher";
 
 export const Story = ({ name, value, onChange, hide, required }) => {
   const [checked, setChecked] = useState(true);
@@ -77,15 +77,7 @@ export const Story = ({ name, value, onChange, hide, required }) => {
             />
           </Stack>
           {!required && (
-            <Switch.Root
-              checked={checked}
-              onCheckedChange={handleSwitchChange}
-              size="lg"
-              colorPalette="pink"
-            >
-              <Switch.HiddenInput />
-              <Switch.Control />
-            </Switch.Root>
+            <Switcher checked={checked} onChange={handleSwitchChange} />
           )}
         </Field.Label>
       </Field.Root>

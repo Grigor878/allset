@@ -36,9 +36,9 @@ export const Language = ({ isPending }) => {
           ) : (
             <Image
               src={`https://flagcdn.com/${selected?.flag}.svg`}
-              boxSize="20px"
+              boxSize="24px"
               alt={selected?.name}
-              borderRadius="sm"
+              // borderRadius="sm"
             />
           )}
         </Flex>
@@ -54,10 +54,10 @@ export const Language = ({ isPending }) => {
                   cursor="pointer"
                 >
                   <Image
-                    boxSize="20px"
+                    boxSize="24px"
                     src={`https://flagcdn.com/${flag}.svg`}
                     alt={name}
-                    borderRadius="sm"
+                    // borderRadius="sm"
                   />
                   {name}
                 </Menu.Item>

@@ -3,15 +3,14 @@ import {
   Button,
   Field,
   Flex,
-  HStack,
   Icon,
   Stack,
-  Switch,
   Textarea,
 } from "@chakra-ui/react";
 import { Label } from "../texts/label";
 import { xls } from "../../../assets/svgs";
 import { LngSwitcher } from "./lngSwitcher";
+import { Switcher } from "./switcher";
 
 export const TextArea = ({
   name,
@@ -57,15 +56,7 @@ export const TextArea = ({
             />
           </Stack>
           {!required && (
-            <Switch.Root
-              checked={checked}
-              onCheckedChange={handleSwitchChange}
-              size="lg"
-              colorPalette="pink"
-            >
-              <Switch.HiddenInput />
-              <Switch.Control />
-            </Switch.Root>
+            <Switcher checked={checked} onChange={handleSwitchChange} />
           )}
         </Field.Label>
 

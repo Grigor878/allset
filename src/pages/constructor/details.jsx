@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 import { Box, Container, Stack } from "@chakra-ui/react";
 import { Expire } from "../../components/constructor/expire";
 import { TitleCreator } from "../../components/constructor/titleCreator";
-import { Datepicker } from "../../components/constructor/ui/datepicker";
+import { EventDate } from "../../components/constructor/eventDate";
 import { TextArea } from "../../components/constructor/ui/textarea";
 import { error, success } from "../../components/alerts";
 import { Photos } from "../../components/constructor/photos";
@@ -112,7 +112,7 @@ const Details = () => {
               setForm={setForm}
               required={true}
             />
-            <Datepicker
+            <EventDate
               name="eventDate"
               value={form.eventDate}
               onChange={handleChange}
