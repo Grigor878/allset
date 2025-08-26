@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { Box, Dialog, Icon, Input, InputGroup, Button } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/style.css";
 import { calendar } from "../../../assets/svgs";
@@ -8,8 +8,11 @@ import { formatDate } from "../../../utils/formatters";
 import { currentYear, today } from "../../../utils/helpers";
 import { calenarLocales } from "../../../utils/constants";
 import { format } from "date-fns";
+import useOutsideClick from "../../../hooks/useOutsideClick";
 
 export const Calendar = ({ name, value, onChange, required }) => {
+  const ref = useRef();
+
   const { language } = useParams();
 
   const [selected, setSelected] = useState(null);
@@ -45,6 +48,8 @@ export const Calendar = ({ name, value, onChange, required }) => {
       })
     : "";
 
+  useOutsideClick(ref, open, setOpen);
+
   return (
     <Box>
       <Dialog.Root open={open} onOpenChange={setOpen} placement="center">
@@ -66,31 +71,35 @@ export const Calendar = ({ name, value, onChange, required }) => {
 
         <Dialog.Positioner>
           <Dialog.Content
+            ref={ref}
             width="fit-content"
             background="white"
             padding={"25px"}
           >
             <Button
               onClick={() => setOpen(false)}
-              variant="plain"
+              variant="outline"
               position={"absolute"}
-              top={0}
-              right={0}
+              top={"5px"}
+              right={"5px"}
             >
-              Close
+              X
             </Button>
 
             <Dialog.Body>
               <DayPicker
                 locale={calenarLocales[language]}
                 mode="single"
-                selected={selected}
-                fromYear={currentYear}
-                toYear={currentYear + 5}
-                disabled={{ before: today }}
-                onSelect={handleSelect}
                 // captionLayout="dropdown"
                 navLayout="around"
+                selected={selected}
+                // fromYear={currentYear}
+                // toYear={currentYear + 5}
+                defaultMonth={selected || today}
+                startMonth={new Date(currentYear, 0)}
+                endMonth={new Date(currentYear + 1, 11)}
+                disabled={{ before: today }}
+                onSelect={handleSelect}
               />
             </Dialog.Body>
           </Dialog.Content>
@@ -99,4 +108,3 @@ export const Calendar = ({ name, value, onChange, required }) => {
     </Box>
   );
 };
-
