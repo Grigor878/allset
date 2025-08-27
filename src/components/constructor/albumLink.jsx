@@ -1,3 +1,4 @@
+import { t } from "i18next";
 import { useState } from "react";
 import { Field, Flex, HStack, Input, Stack } from "@chakra-ui/react";
 import { Label } from "./texts/label";
@@ -24,7 +25,7 @@ export const AlbumLink = ({ name, value, onChange, hide, required }) => {
         <Field.Label as={Flex} w="100%" justify={"space-between"}>
           <HStack>
             <Field.RequiredIndicator />
-            <Label text="Wedding Photos and Video" />
+            <Label text="photo_video" />
           </HStack>
           {!required && (
             <Switcher checked={checked} onChange={handleSwitchChange} />
@@ -37,7 +38,7 @@ export const AlbumLink = ({ name, value, onChange, hide, required }) => {
           value={value ?? ""}
           onChange={onChange}
           borderRadius={"8px"}
-          placeholder="Google Drive / shared folder link"
+          placeholder={t("photo_video_placeholder")}
           required={required}
           disabled={!checked}
           // disabled={true}

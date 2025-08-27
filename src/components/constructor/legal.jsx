@@ -1,6 +1,7 @@
-import { Checkbox, Link } from "@chakra-ui/react";
+import { t } from "i18next";
 import { NavLink, useParams } from "react-router-dom";
 import { useNuqs } from "../../hooks/useNuqs";
+import { Checkbox, Link } from "@chakra-ui/react";
 
 export const Legal = () => {
   const { language } = useParams();
@@ -32,21 +33,19 @@ export const Legal = () => {
         fontWeight={"400"}
         pl={"8px"}
       >
-        I agree to the{" "}
+        {t("legal_agree")}{" "}
         <Link
           as={NavLink}
           color={"#F43F5E"}
           to={`/${language}/terms-of-service`}
         >
-          Terms of Service
+          {t("terms_of_service")}
         </Link>{" "}
-        and{" "}
+        {t("and")}
         <Link as={NavLink} color={"#F43F5E"} to={`/${language}/privacy-policy`}>
-          Privacy Policy
+          {t("privacy_policy")}
         </Link>{" "}
-        . I understand that the invitation date cannot be changed after
-        publishing and that my invitation will expire 6 months after
-        publication.
+        {t("legal_understand")}
       </Checkbox.Label>
     </Checkbox.Root>
   );

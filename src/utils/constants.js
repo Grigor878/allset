@@ -3,17 +3,14 @@ export const locales = ["hy", "en", "ru"]
 export const languages = [
   {
     code: "hy",
-    name: "Armenian",
     flag: "am",
   },
   {
     code: "en",
-    name: "English",
     flag: "gb",
   },
   {
     code: "ru",
-    name: "Russian",
     flag: "ru",
   },
 ]
@@ -50,23 +47,23 @@ import confirm from '../assets/confirm.png'
 
 export const contentMap = {
   "/": {
-    title: "Choose Your Template",
-    text: "Select a beautiful template that matches your wedding style. You can customize colors and content in the next steps.",
+    title: "template_title",
+    text: "template_text",
     img: allset,
   },
   "/details": {
-    title: "Basic Wedding Information",
-    text: "Let's start by gathering the essential details about your special day",
+    title: "details_title",
+    text: "details_text",
     img: details,
   },
   "/preview": {
-    title: "Final Preview",
-    text: "Here's how your wedding website will look to your guests",
+    title: "preview_title",
+    text: "preview_text",
     img: preview,
   },
   "/confirm": {
-    title: "Final Confirmation",
-    text: "Review your invitation details before publishing",
+    title: "confirm_title",
+    text: "confirm_text",
     img: confirm,
   },
 };

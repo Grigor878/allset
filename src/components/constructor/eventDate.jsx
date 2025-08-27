@@ -1,3 +1,4 @@
+import { t } from "i18next";
 import { Field, Stack, Text } from "@chakra-ui/react";
 import { Label } from "./texts/label";
 import { Calendar } from "./ui/calendar";
@@ -15,7 +16,7 @@ export const EventDate = ({ name, value, onChange, required }) => {
       <Field.Root required={required} gap={"16px"}>
         <Field.Label>
           <Field.RequiredIndicator fontSize="18px" />
-          <Label text="Event Date" />
+          <Label text="event_date" />
         </Field.Label>
 
         {/* <Input
@@ -37,7 +38,7 @@ export const EventDate = ({ name, value, onChange, required }) => {
         required={required}
       />
       <Text textStyle="xs" color={"#6B7280"}>
-        You can edit the date until the invitation is published.
+        {t("edit_date")}
       </Text>
     </Stack>
   );

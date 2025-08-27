@@ -1,6 +1,7 @@
+import { t } from "i18next";
+import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Box, Dialog, Icon, Input, InputGroup, Button } from "@chakra-ui/react";
-import { useEffect, useRef, useState } from "react";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/style.css";
 import { calendar } from "../../../assets/svgs";
@@ -60,7 +61,7 @@ export const Calendar = ({ name, value, onChange, required }) => {
               name={name}
               value={formatted}
               readOnly
-              placeholder="Choose date"
+              placeholder={t("choose_date")}
               required={required}
               onClick={() => setOpen(true)}
             />

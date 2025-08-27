@@ -74,7 +74,7 @@ export const getNextRoute = (pathname) => {
   const stepRoutes = routes.filter(r =>
     ["/", "/customisations", "/details", "/preview", "/confirm", "/payment"].includes(r.path)
   );
-  
+
   const index = stepRoutes.findIndex(r => r.path === cleanPath);
 
   if (index === -1 || index === stepRoutes.length - 1) return null;
@@ -119,13 +119,14 @@ export function clearAllSiteCookies() {
 
 export function getTimeUntil(fullDate) {
   if (!fullDate) {
-    // Return empty object if no date is provided
     return {};
   }
 
   const now = new Date();
-  const target = new Date(fullDate); // "YYYY-mm-dd"
+  // const target = new Date(fullDate); // "YYYY-mm-dd"
+  const [day, month, year] = fullDate.split("-").map(Number);
 
+  const target = new Date(year, month - 1, day);
   const difference = target - now;
 
   if (difference <= 0) {

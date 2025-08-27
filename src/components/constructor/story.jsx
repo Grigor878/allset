@@ -1,3 +1,4 @@
+import { t } from "i18next";
 import {
   Field,
   FileUpload,
@@ -69,7 +70,7 @@ export const Story = ({ name, value, onChange, hide, required }) => {
           <Stack>
             <Flex align={"center"} gap={"4px"}>
               <Field.RequiredIndicator fontSize="18px" />
-              <Label text={`Our Story (${activeLang.toUpperCase()})`} />
+              <Label text="story" />
             </Flex>
             <LngSwitcher
               activeLang={activeLang}
@@ -88,15 +89,15 @@ export const Story = ({ name, value, onChange, hide, required }) => {
         value={value?.text?.[activeLang] ?? ""}
         onChange={(e) => handleNestedChange(e, activeLang)}
         disabled={!checked}
-        placeholder="Tell your couple's story..."
+        placeholder={t("story_placeholder")}
       />
       <FileUpload.Root accept="image/*" maxFiles={5} disabled={!checked}>
         <FileUpload.HiddenInput />
         <FileUpload.Dropzone w="100%">
           <Icon>{story.icon}</Icon>
           <FileUpload.DropzoneContent>
-            <Text textStyle="md">Click to upload or drag and drop</Text>
-            <Text color="#9CA3AF">Upload 2-5 photos for your story</Text>
+            <Text textStyle="md">{t("photos_drag")}</Text>
+            <Text color="#9CA3AF">{t("photos_rule2")}</Text>
             {/* <Box color="fg.muted">.png, .jpg up to 5MB</Box> */}
           </FileUpload.DropzoneContent>
         </FileUpload.Dropzone>

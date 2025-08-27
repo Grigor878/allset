@@ -17,14 +17,11 @@ export const ConfirmDate = () => {
       <Field.Root gap="16px">
         <Field.Label gap="16px">
           <Icon>{date.icon}</Icon>
-          <Label text="Important: Date Cannot Be Changed After Publishing" />
+          <Label text="date_preview" />
         </Field.Label>
 
         <Stack w="100%" gap="12px" pl="40px">
-          <SubText
-            fs="14px"
-            text="Once you publish your invitation, the event date will be permanently locked and cannot be modified. Please ensure your date is correct:"
-          />
+          <SubText fs="14px" text="date_preview_rule" />
           {/* <Input
             type="date"
             name="name"
@@ -36,7 +33,7 @@ export const ConfirmDate = () => {
           <Calendar />
           <SubText
             fs="14px"
-            text="If you need to change the date, please go back and update it before publishing."
+            text="date_preview_rule2"
           />
         </Stack>
       </Field.Root>

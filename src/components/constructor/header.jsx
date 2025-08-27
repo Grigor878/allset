@@ -1,3 +1,4 @@
+import { t } from "i18next";
 import { Box, Container, Flex, Icon, Link } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
 import { constructor } from "../../assets/svgs";
@@ -33,7 +34,7 @@ export const Header = () => {
             gap="12px"
           >
             <Icon>{constructor.icon}</Icon>
-            <MidText text={"Wedding Constructor"} />
+            <MidText text={t("title")} />
           </Link>
 
           <Flex gap="12px">

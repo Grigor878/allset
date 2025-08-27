@@ -1,3 +1,4 @@
+import { t } from "i18next";
 import { useState } from "react";
 import { Field, Flex, HStack, Show, Stack, Text } from "@chakra-ui/react";
 import { Label } from "./texts/label";
@@ -7,7 +8,6 @@ import { Switcher } from "./ui/switcher";
 
 export const Counter = ({ name, value, hide, required }) => {
   const [checked, setChecked] = useState(true);
-
   const remaining = getTimeUntil(value);
 
   const handleSwitchChange = (e) => {
@@ -28,7 +28,7 @@ export const Counter = ({ name, value, hide, required }) => {
         <Field.Label as={Flex} w="100%" justify={"space-between"}>
           <HStack>
             <Field.RequiredIndicator />
-            <Label text="Countdown" />
+            <Label text="countdown" />
           </HStack>
           {!required && (
             <Switcher checked={checked} onChange={handleSwitchChange} />
@@ -39,27 +39,27 @@ export const Counter = ({ name, value, hide, required }) => {
           when={isNotEmptyObject(remaining) && checked}
           fallback={
             <Text textStyle="sm" color="#6B7280">
-              Auto-generated based on Event Date + First Agenda Item time
+              {t("countdown_desc")}
             </Text>
           }
         >
           {!remaining?.expired && (
             <Flex gap="5px">
               <Text textStyle="sm" color="#6B7280">
-                {remaining?.days} Days
+                {remaining?.days} {t("days")}
               </Text>
               <Text textStyle="sm" color="#6B7280">
-                {remaining?.hours} Hours
+                {remaining?.hours} {t("hours")}
               </Text>
               <Text textStyle="sm" color="#6B7280">
-                {remaining?.minutes} Minutes
+                {remaining?.minutes} {t("minutes")}
               </Text>
             </Flex>
           )}
 
           {remaining?.expired && (
             <Text textStyle="sm" color="#6B7280">
-              Expired date
+              {t("expired")}
             </Text>
           )}
         </Show>

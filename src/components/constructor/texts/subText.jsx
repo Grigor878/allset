@@ -1,6 +1,7 @@
+import { t } from "i18next";
 import { Text } from "@chakra-ui/react";
 
-export const SubText = ({ text, fs }) => {
+export const SubText = ({ text, fs }) => {  
   return (
     <Text
       fontSize={fs ?? fs}
@@ -9,7 +10,7 @@ export const SubText = ({ text, fs }) => {
       lineHeight={"24px"}
       letterSpacing={0}
     >
-      {text}
+      {t(text)}
     </Text>
   );
 };

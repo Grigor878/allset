@@ -1,1 +1,18 @@
-{}
+{
+    "title":"",
+    "step":"",
+    "login":"",
+    "logout":"",
+    "profile":"",
+    "template_title":"",
+    "template_text":"",
+    "details_title":"",
+    "details_text":"",
+    "preview_title":"",
+    "preview_text":"",
+    "confirm_title":"",
+    "confirm_text":"",
+    "hy":"Հայերեն",
+    "en":"Անգլերեն",
+    "ru":"Ռուսերեն"
+}

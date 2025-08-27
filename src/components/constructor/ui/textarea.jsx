@@ -1,12 +1,6 @@
+import { t } from "i18next";
 import { useState } from "react";
-import {
-  Button,
-  Field,
-  Flex,
-  Icon,
-  Stack,
-  Textarea,
-} from "@chakra-ui/react";
+import { Button, Field, Flex, Icon, Stack, Textarea } from "@chakra-ui/react";
 import { Label } from "../texts/label";
 import { xls } from "../../../assets/svgs";
 import { LngSwitcher } from "./lngSwitcher";
@@ -18,8 +12,8 @@ export const TextArea = ({
   onChange,
   hide,
   required,
-  placeholder,
   text,
+  placeholder,
 }) => {
   const [checked, setChecked] = useState(true);
   const [activeLang, setActiveLang] = useState("hy");
@@ -48,7 +42,7 @@ export const TextArea = ({
           <Stack>
             <Flex align={"center"} gap={"4px"}>
               <Field.RequiredIndicator fontSize="18px" />
-              <Label text={`${text} (${activeLang.toUpperCase()})`} />
+              <Label text={t(text)} />
             </Flex>
             <LngSwitcher
               activeLang={activeLang}
@@ -62,7 +56,7 @@ export const TextArea = ({
 
         <Textarea
           name={name}
-          placeholder={placeholder}
+          placeholder={t(placeholder)}
           value={value?.[activeLang] ?? ""}
           onChange={(e) => onChange(name, activeLang, e.target.value)}
           disabled={!checked}
@@ -79,7 +73,7 @@ export const TextArea = ({
           disabled={!checked}
         >
           <Icon>{xls.icon}</Icon>
-          Export to Excel (available after publishing)
+          {t("export")}
         </Button>
       )}
     </Stack>

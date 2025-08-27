@@ -1,10 +1,9 @@
+import { t } from "i18next";
 import { useState } from "react";
 import {
-  Box,
   Button,
   Field,
   Flex,
-  HStack,
   Icon,
   Input,
   InputGroup,
@@ -48,7 +47,7 @@ export const Promocode = () => {
         <Flex w="100%" justify={"space-between"}>
           <Field.Label gap="16px">
             <Icon>{promo.icon}</Icon>
-            <Label text="Promocode" />
+            <Label text="promocode" />
           </Field.Label>
 
           {applied && !isPending && (
@@ -87,7 +86,7 @@ export const Promocode = () => {
                 onChange={(e) => setPromocode(e.target.value)}
                 variant="outline"
                 borderRadius="8px"
-                placeholder="Apply promocode"
+                placeholder={t("promocode_placeholder")}
                 // placeholder="Add promocode"
                 disabled={isPending}
                 fontSize="14px"
@@ -106,7 +105,7 @@ export const Promocode = () => {
               borderRadius="8px"
               loading={isPending}
             >
-              Apply
+              {t("apply")}
             </Button>
           </Flex>
           {applied && !isPending && (
@@ -118,7 +117,7 @@ export const Promocode = () => {
                   lineHeight={"20px"}
                   fontWeight={"400"}
                 >
-                  Original Price:
+                  {t("original_price")}
                 </Text>
                 <Text textStyle="sm" lineHeight={"20px"}>
                   $49.99
@@ -131,7 +130,7 @@ export const Promocode = () => {
                   lineHeight={"20px"}
                   fontWeight={"400"}
                 >
-                  Discount ({discount}%):
+                  {t("discount")} ({discount}%):
                 </Text>
                 <Text textStyle="sm" fontWeight={"400"}>
                   -$10.00
@@ -145,7 +144,7 @@ export const Promocode = () => {
                   lineHeight={"20px"}
                   fontWeight={"400"}
                 >
-                  Final Price:
+                  {t("final_price")}
                 </Text>
                 <Text>$39.99</Text>
               </Flex>

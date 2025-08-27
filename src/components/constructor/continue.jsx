@@ -1,5 +1,6 @@
-import { useNuqs } from "../../hooks/useNuqs";
+import { t } from "i18next";
 import { useLocation, useParams, NavLink } from "react-router-dom";
+import { useNuqs } from "../../hooks/useNuqs";
 import { getNextRoute } from "../../utils/helpers";
 import { isContinueDisabled } from "../../utils/checkers";
 import { Button } from "@chakra-ui/react";
@@ -38,7 +39,7 @@ export const Continue = () => {
       disabled={disabled}
     >
       {/* {hasMultipleWords(name) ? name : `Continue to ${name}`} */}
-      Continue to {name}
+      {t("continue")} {name}
     </Button>
   ) : isConfirmPage ? (
     <Button
@@ -63,7 +64,7 @@ export const Continue = () => {
       bg="#F43F5E"
       disabled={disabled}
     >
-      Continue to {name}
+      {t("continue")} {name}
     </Button>
   );
 };

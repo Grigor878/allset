@@ -6,7 +6,7 @@ const Terms = () => {
     <Box pt="32px" pb="32px">
       <Container maxW="container.md">
         <Stack gap="16px" align={"center"}>
-          <Title text="Terms of Service" />
+          <Title text="terms_of_service" />
         </Stack>
       </Container>
     </Box>

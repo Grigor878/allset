@@ -1,3 +1,4 @@
+import { t } from "i18next";
 import { useState } from "react";
 import {
   createListCollection,
@@ -84,7 +85,7 @@ export const Dresscode = ({ name, value, onChange, hide, required }) => {
           <Stack>
             <Flex align={"center"} gap={"4px"}>
               <Field.RequiredIndicator fontSize="18px" />
-              <Label text={`Dress Code (${activeLang.toUpperCase()})`} />
+              <Label text="dresscode" />
             </Flex>
             <LngSwitcher
               activeLang={activeLang}
@@ -102,7 +103,7 @@ export const Dresscode = ({ name, value, onChange, hide, required }) => {
           value={value?.description?.[activeLang] ?? ""}
           onChange={(e) => handleNestedChange(e, activeLang)}
           disabled={!checked}
-          placeholder="Short dress code description"
+          placeholder={t("dresscode_placeholder")}
         />
       </Field.Root>
       <Flex w="100%" gap="24px" justify={"space-between"}>
@@ -114,7 +115,7 @@ export const Dresscode = ({ name, value, onChange, hide, required }) => {
           disabled={!checked}
         />
         <Selector
-          name="colorPaletteId"
+          name="color_palette_id"
           value={value?.colorPaletteId}
           onChange={handleNestedChange}
           collection={createListCollection({ items: schemes })}

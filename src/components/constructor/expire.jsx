@@ -1,4 +1,5 @@
-import { Box, Flex, Icon, Stack, Text } from "@chakra-ui/react";
+import { t } from "i18next";
+import { Flex, Icon, Stack, Text } from "@chakra-ui/react";
 import { attention } from "../../assets/svgs";
 
 export const Expire = () => {
@@ -15,11 +16,10 @@ export const Expire = () => {
 
       <Stack>
         <Text fontWeight={"700"} lineHeight={"24px"} color={"#92400E"}>
-          Invitation Expiry
+          {t("expiry")}
         </Text>
         <Text fontSize={"12px"} lineHeight={"20px"} color={"#B45309"}>
-          Invitations remain active for 6 months after publishing. You'll
-          receive an automatic reminder 15 days before expiration.
+          {t("expiry_desc")}
         </Text>
       </Stack>
     </Flex>

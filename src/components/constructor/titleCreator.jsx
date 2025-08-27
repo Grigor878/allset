@@ -1,13 +1,6 @@
+import { t } from "i18next";
 import { useState } from "react";
-import {
-  Button,
-  ButtonGroup,
-  Field,
-  Flex,
-  Input,
-  Stack,
-  Text,
-} from "@chakra-ui/react";
+import { Field, Flex, Input, Stack, Text } from "@chakra-ui/react";
 import { BASE_URL } from "../../services/api/config";
 import { Label } from "./texts/label";
 import { LngSwitcher } from "./ui/lngSwitcher";
@@ -39,10 +32,10 @@ export const TitleCreator = ({ name, value, onChange, required, setForm }) => {
       gap="14px"
     >
       <Field.Root required={required} gap={"16px"}>
-        <Field.Label as={Stack}>
+        <Field.Label as={Stack} alignItems={"flex-start"}>
           <Flex align={"center"} gap={"4px"}>
             <Field.RequiredIndicator fontSize="18px" />
-            <Label text={`Invitation Title (${activeLang.toUpperCase()})`} />
+            <Label text="invitation_title" />
           </Flex>
           <LngSwitcher activeLang={activeLang} setActiveLang={setActiveLang} />
         </Field.Label>
@@ -51,7 +44,7 @@ export const TitleCreator = ({ name, value, onChange, required, setForm }) => {
           value={value?.[activeLang] ?? ""}
           onChange={handleInputChange}
           // onChange={(e) => onChange(name, activeLang, e.target.value)}
-          placeholder="Enter your invitation title"
+          placeholder={t("invitation_placeholder")}
           required
           variant="outline"
           borderRadius={"8px"}
@@ -60,7 +53,7 @@ export const TitleCreator = ({ name, value, onChange, required, setForm }) => {
 
       <Flex borderRadius={"4px"} p="12px" bg="#F9FAFB">
         <Text textStyle="sm" color={"#6B7280"}>
-          URL Preview: {BASE_URL}
+          {t("invitation_preview")} {BASE_URL}
         </Text>
         <Text textStyle="sm" color={"#E85A6B"}>
           {cleanUrlExtension(value?.["en"]) ?? ""}

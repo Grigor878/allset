@@ -1,3 +1,4 @@
+import { t } from "i18next";
 import { Field, FileUpload, Icon, Stack, Text } from "@chakra-ui/react";
 import { uploadAvatar } from "../../assets/svgs";
 import { Label } from "./texts/label";
@@ -25,7 +26,7 @@ export const Photos = ({ name, onChange, required }) => {
       <Field.Root required={required}>
         <Field.Label>
           <Field.RequiredIndicator />
-          <Label text="Main Photo/s" />
+          <Label text="photos_main" />
         </Field.Label>
       </Field.Root>
       <FileUpload.Root accept="image/*" maxFiles={1}>
@@ -33,8 +34,8 @@ export const Photos = ({ name, onChange, required }) => {
         <FileUpload.Dropzone w="100%">
           <Icon>{uploadAvatar.icon}</Icon>
           <FileUpload.DropzoneContent>
-            <Text textStyle="md">Click to upload or drag and drop</Text>
-            <Text color="#9CA3AF">Single image (based on template)</Text>
+            <Text textStyle="md">{t("photos_drag")}</Text>
+            <Text color="#9CA3AF">{t("photos_rule")}</Text>
             {/* <Box color="fg.muted">.png, .jpg up to 5MB</Box> */}
           </FileUpload.DropzoneContent>
         </FileUpload.Dropzone>

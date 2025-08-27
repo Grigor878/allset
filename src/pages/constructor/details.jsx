@@ -123,8 +123,8 @@ const Details = () => {
               value={form.description}
               onChange={handleLngChange}
               required={true}
-              placeholder="Join us as we celebrate our love and commitment..."
-              text="Short Description"
+              text="description"
+              placeholder="description_placeholder"
             />
             <Photos
               // onFileSelect={(file) =>
@@ -140,8 +140,8 @@ const Details = () => {
               onChange={handleLngChange}
               hide={handleHide}
               required={false}
-              placeholder="Please confirm your attendance by [date]"
-              text="Confirm Participation"
+              text="confirm"
+              placeholder="confirm_placeholder"
             />
             <Counter
               name="countDown"

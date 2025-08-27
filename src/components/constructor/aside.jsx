@@ -18,8 +18,8 @@ export const Aside = ({ data, language }) => {
       borderColor={"#E5E7EB"}
     >
       <Stack gap={"8px"}>
-        <MidText text="Choose Color Palette" />
-        <SubText fs="14px" text="Select a color scheme that matches your wedding theme" />
+        <MidText text="choose_palette" />
+        <SubText fs="14px" text="select_palette" />
       </Stack>
       <Stack gap={"16px"} pt="24px">
         {data?.palettes?.map((item) => {

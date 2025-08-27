@@ -1,3 +1,4 @@
+import { t } from "i18next";
 import { useAuth0 } from "@auth0/auth0-react";
 import {
   Avatar,
@@ -53,7 +54,7 @@ export const Auth = () => {
           </Button>
         ) : (
           <Button p="0 8px" variant="ghost" onClick={loginWithPopup}>
-            {isLoading ? <Spinner /> : "Log-In"}
+            {isLoading ? <Spinner /> : t("login")}
           </Button>
         )}
       </Menu.Trigger>
@@ -64,12 +65,12 @@ export const Auth = () => {
             <Menu.Content w="auto" minW="unset" autoFocus>
               <Menu.Item p="0">
                 <Button as={NavLink} to="profile" variant="ghost" w="100%">
-                  Profile
+                  {t("profile")}
                 </Button>
               </Menu.Item>
               <Menu.Item p="0">
-                <Button  onClick={logout} variant="ghost" w="100%">
-                  Log-Out
+                <Button onClick={logout} variant="ghost" w="100%">
+                  {t("logout")}
                 </Button>
               </Menu.Item>
             </Menu.Content>

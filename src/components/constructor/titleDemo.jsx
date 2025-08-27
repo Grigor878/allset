@@ -1,4 +1,5 @@
-import { Box, Field, Flex, Icon, Input, Stack, Text } from "@chakra-ui/react";
+import { t } from "i18next";
+import { Field, Flex, Icon, Input, Stack, Text } from "@chakra-ui/react";
 import { Label } from "./texts/label";
 import { info, url } from "../../assets/svgs";
 import { BASE_URL } from "../../services/api/config";
@@ -15,7 +16,7 @@ export const TitleDemo = () => {
       <Field.Root gap="12px">
         <Field.Label gap="16px">
           <Icon>{url.icon}</Icon>
-          <Label text="Your Invitation URL" />
+          <Label text="invitation_url" />
         </Field.Label>
 
         <Stack w="100%" gap="12px" pl="40px">
@@ -30,15 +31,9 @@ export const TitleDemo = () => {
             borderRadius="8px"
             disabled={true}
           />
-          <Text
-            as={Flex}
-            gap="8px"
-            alignItems={"center"}
-            color={"#D97706"}
-          >
+          <Text as={Flex} gap="8px" alignItems={"center"} color={"#D97706"}>
             <Icon>{info.icon}</Icon>
-            This URL is not active yet. It will become accessible after
-            publishing.
+            {t("not_active")}
           </Text>
         </Stack>
       </Field.Root>

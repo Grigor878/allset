@@ -6,7 +6,7 @@ const Policy = () => {
     <Box pt="32px" pb="32px">
       <Container maxW="container.md">
         <Stack gap="16px" align={"center"}>
-          <Title text="Privacy policy" />
+          <Title text="privacy_policy" />
         </Stack>
       </Container>
     </Box>

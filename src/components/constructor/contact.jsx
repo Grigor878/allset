@@ -1,3 +1,4 @@
+import { t } from "i18next";
 import { Field, Flex, HStack, Input, Stack } from "@chakra-ui/react";
 import { Label } from "./texts/label";
 import { useState } from "react";
@@ -37,7 +38,7 @@ export const Contact = ({ name, value, onChange, hide, required }) => {
         <Field.Label as={Flex} w="100%" justify={"space-between"}>
           <HStack>
             <Field.RequiredIndicator />
-            <Label text="Contact Information" />
+            <Label text="contact" />
           </HStack>
           {!required && (
             <Switcher checked={checked} onChange={handleSwitchChange} />
@@ -64,7 +65,7 @@ export const Contact = ({ name, value, onChange, hide, required }) => {
           required={required}
           onChange={handleNestedChange}
           borderRadius="8px"
-          placeholder="Name (Optional)"
+          placeholder={t("name")}
           disabled={!checked}
         />
         <Input
@@ -75,7 +76,7 @@ export const Contact = ({ name, value, onChange, hide, required }) => {
           required={required}
           onChange={handleNestedChange}
           borderRadius="8px"
-          placeholder="Phone (Optional)"
+          placeholder={t("phone")}
           disabled={!checked}
         />
         <Input
@@ -86,7 +87,7 @@ export const Contact = ({ name, value, onChange, hide, required }) => {
           required={required}
           onChange={handleNestedChange}
           borderRadius="8px"
-          placeholder="Email (Optional)"
+          placeholder={t("email")}
           disabled={!checked}
         />
       </Flex>

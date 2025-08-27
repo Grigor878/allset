@@ -8,7 +8,7 @@ import { navigateWithLocal } from "../utils/helpers";
 export const Language = ({ isPending }) => {
   const navigate = useNavigate();
 
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { pathname } = useLocation();
   const { language } = useParams();
 
@@ -47,7 +47,7 @@ export const Language = ({ isPending }) => {
         <Menu.Positioner>
           <Menu.Content w="auto" minW="unset">
             <For each={languages.filter(({ flag }) => flag !== selected?.flag)}>
-              {({ code, name, flag }) => (
+              {({ code, flag }) => (
                 <Menu.Item
                   key={code}
                   onClick={() => handleChangeLng(code)}
@@ -56,10 +56,10 @@ export const Language = ({ isPending }) => {
                   <Image
                     boxSize="24px"
                     src={`https://flagcdn.com/${flag}.svg`}
-                    alt={name}
+                    alt={t(code)}
                     // borderRadius="sm"
                   />
-                  {name}
+                  {t(code)}
                 </Menu.Item>
               )}
             </For>

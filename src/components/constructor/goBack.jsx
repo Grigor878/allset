@@ -1,7 +1,8 @@
-import { Box, Button, Icon } from "@chakra-ui/react";
+import { t } from "i18next";
 import { useLocation, useNavigate } from "react-router-dom";
-import { back } from "../../assets/svgs";
 import { getPreviousRoute } from "../../utils/helpers";
+import { Box, Button, Icon } from "@chakra-ui/react";
+import { back } from "../../assets/svgs";
 
 export const GoBack = () => {
   const navigate = useNavigate();
@@ -15,7 +16,7 @@ export const GoBack = () => {
   return (
     <Button onClick={() => navigate(-1)} variant="ghost" color="#4B5563">
       <Icon>{back.icon}</Icon>
-      Back to {backInfo.name}
+      {t("back")} {backInfo.name}
     </Button>
   );
 };

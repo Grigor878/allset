@@ -1,3 +1,4 @@
+import { t } from "i18next";
 import { useState } from "react";
 import { Portal, Select } from "@chakra-ui/react";
 
@@ -25,7 +26,7 @@ export const Selector = ({ name, value, onChange, collection, disabled }) => {
       <Select.HiddenSelect />
       <Select.Control>
         <Select.Trigger>
-          <Select.ValueText placeholder={`Select ${name}`} />
+          <Select.ValueText placeholder={`${t("select")} ${t(name)}`} />
         </Select.Trigger>
         <Select.IndicatorGroup>
           <Select.Indicator />
