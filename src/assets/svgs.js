@@ -223,3 +223,12 @@ export const info = {
         </svg>
     )
 }
+
+export const payment = {
+    icon: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M5.14265 6.28564H18.8569C19.4631 6.28564 20.0445 6.52646 20.4732 6.95511C20.9018 7.38377 21.1426 7.96515 21.1426 8.57136V16.5714C21.1426 17.1776 20.9018 17.7589 20.4732 18.1876C20.0445 18.6163 19.4631 18.8571 18.8569 18.8571H5.14265C4.53644 18.8571 3.95506 18.6163 3.5264 18.1876C3.09775 17.7589 2.85693 17.1776 2.85693 16.5714V8.57136C2.85693 7.96515 3.09775 7.38377 3.5264 6.95511C3.95506 6.52646 4.53644 6.28564 5.14265 6.28564Z" stroke="#4B5563" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M2.28564 10.2856H21.7142V12.5714H2.28564V10.2856Z" fill="#4B5563" />
+        </svg>
+    )
+}

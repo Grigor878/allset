@@ -1,4 +1,4 @@
-import { t } from "i18next";
+import { useTranslation } from "react-i18next";
 import { useState } from "react";
 import {
   createListCollection,
@@ -14,6 +14,8 @@ import { LngSwitcher } from "./ui/lngSwitcher";
 import { Switcher } from "./ui/switcher";
 
 export const Dresscode = ({ name, value, onChange, hide, required }) => {
+  const { t } = useTranslation();
+
   const [checked, setChecked] = useState(true);
   const [activeLang, setActiveLang] = useState("hy");
 

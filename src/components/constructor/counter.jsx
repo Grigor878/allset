@@ -1,4 +1,4 @@
-import { t } from "i18next";
+import { useTranslation } from "react-i18next";
 import { useState } from "react";
 import { Field, Flex, HStack, Show, Stack, Text } from "@chakra-ui/react";
 import { Label } from "./texts/label";
@@ -7,6 +7,8 @@ import { isNotEmptyObject } from "../../utils/checkers";
 import { Switcher } from "./ui/switcher";
 
 export const Counter = ({ name, value, hide, required }) => {
+  const { t } = useTranslation();
+  
   const [checked, setChecked] = useState(true);
   const remaining = getTimeUntil(value);
 

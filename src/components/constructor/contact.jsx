@@ -1,10 +1,12 @@
-import { t } from "i18next";
+import { useTranslation } from "react-i18next";
 import { Field, Flex, HStack, Input, Stack } from "@chakra-ui/react";
 import { Label } from "./texts/label";
 import { useState } from "react";
 import { Switcher } from "./ui/switcher";
 
 export const Contact = ({ name, value, onChange, hide, required }) => {
+  const { t } = useTranslation();
+  
   const [checked, setChecked] = useState(true);
 
   const handleSwitchChange = (e) => {

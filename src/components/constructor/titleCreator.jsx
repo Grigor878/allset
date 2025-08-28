@@ -1,4 +1,4 @@
-import { t } from "i18next";
+import { useTranslation } from "react-i18next";
 import { useState } from "react";
 import { Field, Flex, Input, Stack, Text } from "@chakra-ui/react";
 import { BASE_URL } from "../../services/api/config";
@@ -7,6 +7,8 @@ import { LngSwitcher } from "./ui/lngSwitcher";
 import { cleanUrlExtension } from "../../utils/formatters";
 
 export const TitleCreator = ({ name, value, onChange, required, setForm }) => {
+  const { t } = useTranslation();
+  
   const [activeLang, setActiveLang] = useState("hy");
 
   const handleInputChange = (e) => {

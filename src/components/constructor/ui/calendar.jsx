@@ -1,4 +1,4 @@
-import { t } from "i18next";
+import { useTranslation } from "react-i18next";
 import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Box, Dialog, Icon, Input, InputGroup, Button } from "@chakra-ui/react";
@@ -13,7 +13,8 @@ import useOutsideClick from "../../../hooks/useOutsideClick";
 
 export const Calendar = ({ name, value, onChange, required }) => {
   const ref = useRef();
-
+  
+  const { t } = useTranslation();
   const { language } = useParams();
 
   const [selected, setSelected] = useState(null);
@@ -79,10 +80,16 @@ export const Calendar = ({ name, value, onChange, required }) => {
           >
             <Button
               onClick={() => setOpen(false)}
-              variant="outline"
-              position={"absolute"}
-              top={"5px"}
-              right={"5px"}
+              // variant="outline"
+              position="absolute"
+              top="5px"
+              right="5px"
+              //
+              fontWeight="400"
+              fontSize="14px"
+              borderRadius="8px"
+              bg="#F43F5E"
+              color="white"
             >
               X
             </Button>
@@ -101,6 +108,16 @@ export const Calendar = ({ name, value, onChange, required }) => {
                 endMonth={new Date(currentYear + 1, 11)}
                 disabled={{ before: today }}
                 onSelect={handleSelect}
+                // modifiersClassNames={{
+                //   selected: "selected",
+                // }}
+                modifiersStyles={{
+                  selected: {
+                    backgroundColor: "#f43f5e",
+                    color: "white",
+                    borderRadius: "100%",
+                  },
+                }}
               />
             </Dialog.Body>
           </Dialog.Content>

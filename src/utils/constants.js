@@ -150,6 +150,20 @@ export const detailsForm = {
   },
 }
 
+import visa from "../assets/visa.png";
+import idram from "../assets/idram.png";
+
+export const paymentMethods = [
+  {
+    value: "visa",
+    src: visa,
+  },
+  {
+    value: "idram",
+    src: idram,
+  },
+]
+
 // templates page local data
 // import one from '../assets/template1.png'
 // import two from '../assets/template2.png'

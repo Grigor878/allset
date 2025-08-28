@@ -1,4 +1,4 @@
-import { t } from "i18next";
+import { useTranslation } from "react-i18next";
 import { useAuth0 } from "@auth0/auth0-react";
 import {
   Avatar,
@@ -13,6 +13,7 @@ import {
 import { NavLink } from "react-router-dom";
 
 export const Auth = () => {
+  const { t } = useTranslation();
   const { isLoading, user, loginWithPopup, logout } = useAuth0();
 
   return (

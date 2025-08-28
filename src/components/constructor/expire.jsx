@@ -1,8 +1,10 @@
-import { t } from "i18next";
+import { useTranslation } from "react-i18next";
 import { Flex, Icon, Stack, Text } from "@chakra-ui/react";
 import { attention } from "../../assets/svgs";
 
 export const Expire = () => {
+  const { t } = useTranslation();
+
   return (
     <Flex
       p={"17px"}

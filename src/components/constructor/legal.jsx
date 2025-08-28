@@ -1,12 +1,13 @@
-import { t } from "i18next";
+import { useTranslation } from "react-i18next";
 import { NavLink, useParams } from "react-router-dom";
 import { useNuqs } from "../../hooks/useNuqs";
 import { Checkbox, Link } from "@chakra-ui/react";
 
 export const Legal = () => {
+  const { t } = useTranslation();
   const { language } = useParams();
 
-  const [accept, setAccept] = useNuqs("accept");
+  const [accept, setAccept] = useNuqs("terms_accepted");
 
   const handleChange = (value) => {
     const checked =

@@ -1,4 +1,4 @@
-import { t } from "i18next";
+import { useTranslation } from "react-i18next";
 import { useState } from "react";
 import { Button, Field, Flex, Icon, Stack, Textarea } from "@chakra-ui/react";
 import { Label } from "../texts/label";
@@ -15,6 +15,8 @@ export const TextArea = ({
   text,
   placeholder,
 }) => {
+  const { t } = useTranslation();
+
   const [checked, setChecked] = useState(true);
   const [activeLang, setActiveLang] = useState("hy");
 

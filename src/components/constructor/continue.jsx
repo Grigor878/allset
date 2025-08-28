@@ -1,4 +1,4 @@
-import { t } from "i18next";
+import { useTranslation } from "react-i18next";
 import { useLocation, useParams, NavLink } from "react-router-dom";
 import { useNuqs } from "../../hooks/useNuqs";
 import { getNextRoute } from "../../utils/helpers";
@@ -9,7 +9,8 @@ export const Continue = () => {
   const [template] = useNuqs("template");
   const [palette] = useNuqs("palette");
   const [accept] = useNuqs("accept");
-
+  
+  const { t } = useTranslation();
   const { pathname } = useLocation();
   const { language } = useParams();
 

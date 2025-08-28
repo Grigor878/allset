@@ -1,4 +1,4 @@
-import { t } from "i18next";
+import { useTranslation } from "react-i18next";
 import { Box, Container, Flex, Icon, Link } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
 import { constructor } from "../../assets/svgs";
@@ -8,6 +8,7 @@ import { MidText } from "./texts/midText";
 import { Auth } from "../../pages/auth";
 
 export const Header = () => {
+  const { t } = useTranslation();
   // const [_, setTemplate] = useNuqs("template", null);
 
   return (

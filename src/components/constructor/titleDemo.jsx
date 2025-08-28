@@ -1,10 +1,12 @@
-import { t } from "i18next";
+import { useTranslation } from "react-i18next";
 import { Field, Flex, Icon, Input, Stack, Text } from "@chakra-ui/react";
 import { Label } from "./texts/label";
 import { info, url } from "../../assets/svgs";
 import { BASE_URL } from "../../services/api/config";
 
 export const TitleDemo = () => {
+  const { t } = useTranslation();
+  
   return (
     <Stack
       borderRadius={"8px"}

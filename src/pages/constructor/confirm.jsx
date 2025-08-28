@@ -7,6 +7,7 @@ import { Promocode } from "../../components/constructor/promocode";
 import { TitleDemo } from "../../components/constructor/titleDemo";
 import { ConfirmDate } from "../../components/constructor/confirmDate";
 import { Legal } from "../../components/constructor/legal";
+import { Payment } from "../../components/constructor/payment";
 
 const Confirm = () => {
   const navigate = useNavigate();
@@ -47,6 +48,7 @@ const Confirm = () => {
           </Stack>
           <Promocode />
           <Legal />
+          <Payment />
         </Stack>
       </Container>
     </Box>

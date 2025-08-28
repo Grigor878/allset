@@ -1,4 +1,4 @@
-import { t } from "i18next";
+import { useTranslation } from "react-i18next";
 import { useState } from "react";
 import {
   Button,
@@ -19,6 +19,9 @@ import { usePostTanstack } from "../../hooks/useTanstack";
 
 export const Promocode = () => {
   const discount = 20;
+
+  const { t } = useTranslation();
+
   const [promocode, setPromocode] = useState("");
   const [applied, setApplied] = useState(false);
 
@@ -117,14 +120,15 @@ export const Promocode = () => {
             >
               <DataList.Item>
                 <DataList.ItemLabel
-                  fontSize={"13px"}
                   color={"#4B5563"}
+                  fontSize={"14px"}
                   lineHeight={"20px"}
                   fontWeight={"400"}
                 >
                   {t("original_price")}
                 </DataList.ItemLabel>
                 <DataList.ItemValue
+                  as="s"
                   fontSize={"14px"}
                   lineHeight={"20px"}
                   justifyContent={"flex-end"}
@@ -134,8 +138,8 @@ export const Promocode = () => {
               </DataList.Item>
               <DataList.Item>
                 <DataList.ItemLabel
-                  fontSize={"13px"}
                   color={"#4B5563"}
+                  fontSize={"14px"}
                   lineHeight={"20px"}
                   fontWeight={"400"}
                 >
@@ -152,15 +156,17 @@ export const Promocode = () => {
               <Separator />
               <DataList.Item w="100%">
                 <DataList.ItemLabel
-                  fontSize={"13px"}
-                  color={"#4B5563"}
+                  fontSize={"14px"}
+                  fontWeight={"700"}
                   lineHeight={"20px"}
-                  fontWeight={"400"}
+                  // color={"#4B5563"}
+                  // fontWeight={"400"}
                 >
                   {t("final_price")}
                 </DataList.ItemLabel>
                 <DataList.ItemValue
-                  fontSize={"16px"}
+                  fontSize={"14px"}
+                  fontWeight={"700"}
                   lineHeight={"20px"}
                   justifyContent={"flex-end"}
                 >

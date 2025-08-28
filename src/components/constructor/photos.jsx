@@ -1,10 +1,12 @@
-import { t } from "i18next";
+import { useTranslation } from "react-i18next";
 import { Field, FileUpload, Icon, Stack, Text } from "@chakra-ui/react";
 import { uploadAvatar } from "../../assets/svgs";
 import { Label } from "./texts/label";
 import { FileUploadList } from "./ui/filleUpload";
 
 export const Photos = ({ name, onChange, required }) => {
+  const { t } = useTranslation();
+  
   const handleFileSelect = (files) => {
     onChange({
       target: {

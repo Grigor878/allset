@@ -1,4 +1,4 @@
-import { t } from "i18next";
+import { useTranslation } from "react-i18next";
 import { useLocation, useNavigate } from "react-router-dom";
 import { getPreviousRoute } from "../../utils/helpers";
 import { Box, Button, Icon } from "@chakra-ui/react";
@@ -7,6 +7,7 @@ import { back } from "../../assets/svgs";
 export const GoBack = () => {
   const navigate = useNavigate();
 
+  const { t } = useTranslation();
   const { pathname } = useLocation();
 
   const backInfo = getPreviousRoute(pathname);
