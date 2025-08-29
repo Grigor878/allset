@@ -148,6 +148,7 @@ export const detailsForm = {
     },
     photoUrls: [],
   },
+  languages: []
 }
 
 import visa from "../assets/visa.png";

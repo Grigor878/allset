@@ -1,18 +1,18 @@
 import { useTranslation } from "react-i18next";
-import { Box, Container, Flex, Icon, Link } from "@chakra-ui/react";
+import { Box, Container, Flex, Image, Link } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
-import { constructor } from "../../assets/svgs";
 import { Steps } from "./steps";
 import { Language } from "../language";
 import { MidText } from "./texts/midText";
 import { Auth } from "../../pages/auth";
+import logo from "../../assets/allset.png";
 
 export const Header = () => {
   const { t } = useTranslation();
   // const [_, setTemplate] = useNuqs("template", null);
 
   return (
-    <Box
+    <Flex
       as="header"
       w="100%"
       // boxShadow="md"
@@ -23,28 +23,37 @@ export const Header = () => {
       zIndex="100"
       bg="white"
       boxShadow="sm"
-      pt="16px"
-      pb="16px"
+      // pt="16px"
+      // pb="16px"
+      py="16px"
+      px="0"
+      align="center"
+      justify="space-between"
     >
-      <Container maxW="container.md">
-        <Flex justify="space-between">
-          <Link
-            as={NavLink}
-            // onClick={() => setTemplate(null)}
-            to=""
-            gap="12px"
-          >
-            <Icon>{constructor.icon}</Icon>
-            <MidText text={t("title")} />
-          </Link>
+      <Box ml="40px">
+        <Image src={logo} w="65px" h="40px" alt="AllSet" />
+      </Box>
+      {/* <Container maxW="1104px" px={0}> */}
+      <Box
+        position="absolute"
+        left="50%"
+        transform="translateX(-50%)"
+        w="1104px"
+      >
+        <Container maxW="1104px" px={0}>
+          <Flex justify="space-between">
+            <Link as={NavLink} to="" gap="12px">
+              <MidText text={t("title")} />
+            </Link>
 
-          <Flex gap="12px">
             <Steps />
-            <Language />
-            <Auth />
           </Flex>
-        </Flex>
-      </Container>
-    </Box>
+        </Container>
+      </Box>
+      <Flex gap="12px" mr="40px">
+        <Language />
+        <Auth />
+      </Flex>
+    </Flex>
   );
 };

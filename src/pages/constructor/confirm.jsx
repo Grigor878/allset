@@ -34,7 +34,7 @@ const Confirm = () => {
 
   return (
     <Box pt="32px" pb="40px">
-      <Container maxW="container.md">
+      <Container maxW="1104px" px={0}>
         <Stack gap="24px" w="864px" mx="auto">
           <Stack
             id="confirm"

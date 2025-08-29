@@ -5,7 +5,7 @@ import { Continue } from "./continue";
 export const Footer = () => {
   return (
     <Box as="footer" w="100%" boxShadow="sm" pt="16px" pb="16px" bg="white">
-      <Container maxW="container.md">
+      <Container maxW="1104px" px={0}>
         <Flex justify="space-between">
           <GoBack />
           <Continue />

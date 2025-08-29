@@ -4,7 +4,7 @@ import { Title } from "../../components/constructor/texts/title";
 const Policy = () => {
   return (
     <Box pt="32px" pb="32px">
-      <Container maxW="container.md">
+      <Container maxW="1104px" px={0}>
         <Stack gap="16px" align={"center"}>
           <Title text="privacy_policy" />
         </Stack>

@@ -15,6 +15,7 @@ import { AlbumLink } from "../../components/constructor/albumLink";
 import { detailsForm } from "../../utils/constants";
 import baseApi from "../../services/api/baseApi";
 import { useNuqs } from "../../hooks/useNuqs";
+import { LngSelector } from "../../components/constructor/lngSelector";
 
 const Details = () => {
   const navigate = useNavigate();
@@ -95,7 +96,7 @@ const Details = () => {
 
   return (
     <Box pt="32px" pb="65px">
-      <Container maxW="container.md">
+      <Container maxW="1104px" px={0}>
         {/* VStack */}
         <Stack gap="24px" w="864px" mx="auto">
           <Stack
@@ -105,6 +106,12 @@ const Details = () => {
             autoComplete="on"
             onSubmit={submit}
           >
+            <LngSelector
+              name="languages"
+              value={form.languages}
+              onChange={handleChange}
+              required={true}
+            />
             <TitleCreator
               name="title"
               value={form.title}

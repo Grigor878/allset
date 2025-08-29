@@ -1,8 +1,8 @@
 {
     "title": "Wedding Constructor",
     "step": "Step",
-    "login": "Log-In",
-    "logout": "Log-out",
+    "login": "Login",
+    "logout": "Logout",
     "profile": "Profile",
     "template_title": "Choose Your Template",
     "template_text": "Select a beautiful template that matches your wedding style. You can customize colors and content in the next steps.",
@@ -21,6 +21,7 @@
     "select_palette": "Select a color scheme that matches your wedding theme",
     "template_preview": "Template Preview",
     "template_desc": "See how your wedding invitation will look with the selected color palette",
+    "select_languages": "Select in how many languages you want your invitation to be",
     "invitation_title": "Invitation Title",
     "invitation_placeholder": "Enter your invitation title",
     "invitation_preview": "URL Preview:",

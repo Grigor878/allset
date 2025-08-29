@@ -44,7 +44,7 @@ export const Auth = () => {
       </Menu.Trigger> */}
       <Menu.Trigger asChild>
         {user ? (
-          <Button variant="ghost" p="0 8px">
+          <Button variant="plain" p="0">
             <Avatar.Root size="xs">
               <Avatar.Fallback name={user?.given_name} />
               <Avatar.Image src={user?.picture || ""} />
@@ -54,7 +54,18 @@ export const Auth = () => {
             </Avatar.Root>
           </Button>
         ) : (
-          <Button p="0 8px" variant="ghost" onClick={loginWithPopup}>
+          <Button
+            border="1px solid"
+            borderColor="#F43F5E"
+            bg="white"
+            color="#F43F5E"
+            fontWeight="400"
+            fontSize="14px"
+            borderRadius="8px"
+            lineHeight="24px"
+            _hover={{ bg: "#F43F5E", color: "white" }}
+            onClick={loginWithPopup}
+          >
             {isLoading ? <Spinner /> : t("login")}
           </Button>
         )}
@@ -65,12 +76,37 @@ export const Auth = () => {
           <Show when={user}>
             <Menu.Content w="auto" minW="unset" autoFocus>
               <Menu.Item p="0">
-                <Button as={NavLink} to="profile" variant="ghost" w="100%">
+                <Button
+                  as={NavLink}
+                  to="profile"
+                  border="1px solid"
+                  borderColor="#F43F5E"
+                  bg="white"
+                  color="#F43F5E"
+                  fontWeight="400"
+                  fontSize="14px"
+                  borderRadius="8px"
+                  lineHeight="24px"
+                  w="100%"
+                  _hover={{ bg: "#F43F5E", color: "white" }}
+                >
                   {t("profile")}
                 </Button>
               </Menu.Item>
-              <Menu.Item p="0">
-                <Button onClick={logout} variant="ghost" w="100%">
+              <Menu.Item p="0" mt="12px">
+                <Button
+                  onClick={logout}
+                  border="1px solid"
+                  borderColor="#F43F5E"
+                  bg="white"
+                  color="#F43F5E"
+                  fontWeight="400"
+                  fontSize="14px"
+                  borderRadius="8px"
+                  lineHeight="24px"
+                  w="100%"
+                  _hover={{ bg: "#F43F5E", color: "white" }}
+                >
                   {t("logout")}
                 </Button>
               </Menu.Item>
