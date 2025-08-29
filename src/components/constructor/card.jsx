@@ -34,7 +34,6 @@ export const Card = ({ el }) => {
       borderRadius={"12px"}
       transition={".3s ease"}
       _hover={{
-        // borderColor: "#F43F5E",
         boxShadow: "0 0 0 2px rgba(244, 63, 94, 0.4)",
         cursor: "pointer",
       }}
@@ -45,7 +44,6 @@ export const Card = ({ el }) => {
       tabIndex={0}
       onClick={handleSelect}
     >
-      {/* <Box bg={bg} borderTopRadius="12px"> */}
       <Box borderTopRadius="12px">
         <Image w="100%" h="272px" src={formatUrl(templateImage)} p="24px" />
       </Box>

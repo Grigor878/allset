@@ -1,13 +1,10 @@
 import {
   Checkbox,
-  CheckboxCard,
-  CheckboxGroup,
   Field,
   Flex,
   Icon,
   Image,
   Stack,
-  Text,
 } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
 import { Label } from "./texts/label";
@@ -62,7 +59,6 @@ export const LngSelector = ({ name, value, onChange, required }) => {
             >
               {value.includes(code) && <Icon>{checked.icon}</Icon>}
             </Checkbox.Control>
-            {/* <Checkbox.Control /> */}
             <Checkbox.Label
               as={Flex}
               gap={"8px"}

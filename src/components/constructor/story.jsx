@@ -100,7 +100,6 @@ export const Story = ({ name, value, onChange, hide, required }) => {
           <FileUpload.DropzoneContent>
             <Text textStyle="md">{t("photos_drag")}</Text>
             <Text color="#9CA3AF">{t("photos_rule2")}</Text>
-            {/* <Box color="fg.muted">.png, .jpg up to 5MB</Box> */}
           </FileUpload.DropzoneContent>
         </FileUpload.Dropzone>
         <FileUploadList onFileSelect={handleFileSelect} />

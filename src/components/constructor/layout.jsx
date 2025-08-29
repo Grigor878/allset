@@ -14,10 +14,7 @@ const Layout = () => {
       <Header />
       <TopPart />
       <Suspense fallback={<Loader />}>
-        {/* <Suspense fallback={null}> */}
-        {/* <Box as="main" flex="1" p={4}> */}
         <Outlet />
-        {/* </Box> */}
       </Suspense>
       <Footer />
       <ScrollToTop />

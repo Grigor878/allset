@@ -5,9 +5,9 @@ export const getLanguage = (pathname) => {
 
 export const getFlagCode = (lang) => {
   const map = {
-    hy: "am", // Armenian flag
-    en: "gb", // Great Britain flag
-    ru: "ru", // Russian flag
+    hy: "am", 
+    en: "gb", 
+    ru: "ru", 
   };
   return map[lang] || "un";
 };

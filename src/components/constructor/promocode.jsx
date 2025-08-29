@@ -32,9 +32,9 @@ export const Promocode = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!promocode) return;
-    // mutate({ promocode });
     setApplied(true); // test case
+    if (!promocode) return;
+    mutate({ promocode });
   };
 
   return (
@@ -91,7 +91,6 @@ export const Promocode = () => {
                 variant="outline"
                 borderRadius="8px"
                 placeholder={t("promocode_placeholder")}
-                // placeholder="Add promocode"
                 disabled={isPending}
                 fontSize="14px"
                 fontWeight="700"
@@ -116,7 +115,6 @@ export const Promocode = () => {
             <DataList.Root
               orientation="horizontal"
               gap="8px"
-              // maxW="md"
             >
               <DataList.Item>
                 <DataList.ItemLabel
@@ -159,8 +157,6 @@ export const Promocode = () => {
                   fontSize={"14px"}
                   fontWeight={"700"}
                   lineHeight={"20px"}
-                  // color={"#4B5563"}
-                  // fontWeight={"400"}
                 >
                   {t("final_price")}
                 </DataList.ItemLabel>

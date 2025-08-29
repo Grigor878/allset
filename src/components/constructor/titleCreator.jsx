@@ -45,7 +45,6 @@ export const TitleCreator = ({ name, value, onChange, required, setForm }) => {
           name={name}
           value={value?.[activeLang] ?? ""}
           onChange={handleInputChange}
-          // onChange={(e) => onChange(name, activeLang, e.target.value)}
           placeholder={t("invitation_placeholder")}
           required
           variant="outline"

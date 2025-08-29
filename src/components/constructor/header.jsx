@@ -15,7 +15,6 @@ export const Header = () => {
     <Flex
       as="header"
       w="100%"
-      // boxShadow="md"
       position="sticky"
       top="0"
       left="0"
@@ -23,8 +22,6 @@ export const Header = () => {
       zIndex="100"
       bg="white"
       boxShadow="sm"
-      // pt="16px"
-      // pb="16px"
       py="16px"
       px="0"
       align="center"
@@ -33,7 +30,6 @@ export const Header = () => {
       <Box ml="40px">
         <Image src={logo} w="65px" h="40px" alt="AllSet" />
       </Box>
-      {/* <Container maxW="1104px" px={0}> */}
       <Box
         position="absolute"
         left="50%"

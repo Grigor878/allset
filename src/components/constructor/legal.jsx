@@ -19,12 +19,8 @@ export const Legal = () => {
     <Checkbox.Root
       size="sm"
       colorPalette="pink"
-      // defaultChecked={Boolean(accept)}
       defaultChecked={accept == "true" ? true : false}
       onCheckedChange={handleChange}
-      // onCheckedChange={(e) => setAccept(!!e.accept)}
-      // defaultChecked={accept}
-      // onCheckedChange={setAccept}
     >
       <Checkbox.HiddenInput />
       <Checkbox.Control />

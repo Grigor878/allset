@@ -22,14 +22,6 @@ export const ConfirmDate = () => {
 
         <Stack w="100%" gap="12px" pl="40px">
           <SubText fs="14px" text="date_preview_rule" />
-          {/* <Input
-            type="date"
-            name="name"
-            variant="outline"
-            defaultValue="2026-05-29"
-            borderRadius="8px"
-            onClick={(e) => e.target.showPicker()}
-          /> */}
           <Calendar />
           <SubText
             fs="14px"

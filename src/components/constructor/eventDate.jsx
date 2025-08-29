@@ -13,25 +13,12 @@ export const EventDate = ({ name, value, onChange, required }) => {
       borderColor={"#E5E7EB"}
       bg="white"
       p="25px"
-      //   gap="9px"
     >
       <Field.Root required={required} gap={"16px"}>
         <Field.Label>
           <Field.RequiredIndicator fontSize="18px" />
           <Label text="event_date" />
         </Field.Label>
-
-        {/* <Input
-          type="date"
-          name={name}
-          variant="outline"
-          value={value ?? ""}
-          onChange={onChange}
-          onClick={(e) => e.target.showPicker()}
-          placeholder="Choose date"
-          borderRadius={"8px"}
-          required
-        /> */}
       </Field.Root>
       <Calendar
         name={name}

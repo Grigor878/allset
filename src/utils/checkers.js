@@ -1,6 +1,6 @@
 // export const getStorageCheck = () =>
-//     !sessionStorage.getItem("tag-token") &&
-//     localStorage.getItem("tag-rememberToken");
+//     !sessionStorage.getItem("") &&
+//     localStorage.getItem("");
 
 // export const getAuthCheck = ({ isLoggedIn, token }) =>
 //     isLoggedIn && token && !getStorageCheck();

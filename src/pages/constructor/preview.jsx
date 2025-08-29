@@ -1,9 +1,11 @@
-import React from 'react'
+import { Box } from "@chakra-ui/react";
 
 const Preview = () => {
   return (
-    <div>preview</div>
-  )
-}
+    <Box maxW="1104px" px={0}>
+      preview
+    </Box>
+  );
+};
 
-export default Preview
+export default Preview;

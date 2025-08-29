@@ -43,7 +43,6 @@ export const AlbumLink = ({ name, value, onChange, hide, required }) => {
           placeholder={t("photo_video_placeholder")}
           required={required}
           disabled={!checked}
-          // disabled={true}
         />
       </Field.Root>
     </Stack>

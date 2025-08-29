@@ -11,7 +11,6 @@ const Templates = () => {
 
   return (
     <Box>
-      {/* <Container maxW="1104px" px={0}> */}
       <Container maxW="1104px" px={0}>
         <Flex justify={"space-between"} gap="32px" pt="32px" pb="32px">
           <For each={data}>{(el, index) => <Card key={index} el={el} />}</For>

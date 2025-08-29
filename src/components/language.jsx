@@ -34,11 +34,7 @@ export const Language = ({ isPending }) => {
       <Menu.Trigger asChild>
         <Flex
           align="center"
-          // px={2}
-          // py={1}
-          // borderRadius="sm"
           cursor="pointer"
-          // _hover={{ bg: "gray.100" }}
         >
           {isPending ? (
             <Spinner />
@@ -49,7 +45,6 @@ export const Language = ({ isPending }) => {
                 boxSize="24px"
                 borderRadius={"4px"}
                 alt={selected?.name}
-                // borderRadius="sm"
               />
               <Icon size={"lg"}>{down.icon}</Icon>
             </>
@@ -71,7 +66,6 @@ export const Language = ({ isPending }) => {
                     boxSize="24px"
                     borderRadius={"4px"}
                     alt={t(code)}
-                    // borderRadius="sm"
                   />
                   {t(code)}
                 </Menu.Item>

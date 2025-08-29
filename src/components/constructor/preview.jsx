@@ -24,7 +24,6 @@ export const Preview = () => {
       bg="white"
       border="1px solid"
       borderRadius={"8px"}
-      // p={"16px 25px"}
       borderColor={"#E5E7EB"}
     >
       <Flex justify={"space-between"} p={"16px 25px"}>

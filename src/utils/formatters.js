@@ -23,7 +23,7 @@ export function formatUrl(url) {
     if (url.startsWith(oldBase)) {
         return url.replace(oldBase, newBase);
     }
-    return url; // return original if it doesn't match
+    return url;
 }
 
 export const cleanUrlExtension = (str) => {

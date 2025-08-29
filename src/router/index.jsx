@@ -4,7 +4,6 @@ import cookies from "js-cookie";
 import Layout from "../components/constructor/layout";
 import NotFound from "../pages/404";
 
-
 const Invitation = lazy(() => import("../pages/invitation"));
 const Templates = lazy(() => import("../pages/constructor/templates"));
 const Customisations = lazy(() =>
