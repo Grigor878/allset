@@ -5,9 +5,9 @@ export const getLanguage = (pathname) => {
 
 export const getFlagCode = (lang) => {
   const map = {
-    hy: "am", 
-    en: "gb", 
-    ru: "ru", 
+    hy: "am",
+    en: "gb",
+    ru: "ru",
   };
   return map[lang] || "un";
 };
@@ -34,52 +34,66 @@ export const getStepInfo = (pathname) => {
 
 import { routes } from "./constants";
 
+// export const getPreviousRoute = (pathname) => {
+//   const language = getLanguage(pathname);
+//   const cleanPath = pathWithoutLang(pathname);
+
+//   const stepRoutes = routes.filter(r =>
+//     ["/", "/customisations", "/details", "/preview", "/confirm"].includes(r.path)
+//   );
+
+//   const index = stepRoutes.findIndex(r => r.path === cleanPath);
+
+//   if (index <= 0) return null;
+
+//   const prevRoute = stepRoutes[index - 1];
+//   return {
+//     path: `/${language}${prevRoute.path}`,
+//     name: prevRoute.name,
+//   };
+// };
+
 export const getPreviousRoute = (pathname) => {
-  // const language = getLanguage(pathname);
-  // const cleanPath = pathWithoutLang(pathname);
-
-  // const index = routes.findIndex((r) => r.path === cleanPath);
-  // const prevRoute = index > 0 ? routes[index - 1] : routes[0];
-
-  // return { path: `/${language}${prevRoute.path}`, name: prevRoute.name };
   const language = getLanguage(pathname);
   const cleanPath = pathWithoutLang(pathname);
 
-  const stepRoutes = routes.filter(r =>
-    ["/", "/customisations", "/details", "/preview", "/confirm"].includes(r.path)
-  );
-
-  const index = stepRoutes.findIndex(r => r.path === cleanPath);
-
+  const index = routes.findIndex(r => r.path === cleanPath);
   if (index <= 0) return null;
 
-  const prevRoute = stepRoutes[index - 1];
+  const prevRoute = routes[index - 1];
   return {
     path: `/${language}${prevRoute.path}`,
     name: prevRoute.name,
   };
 };
 
+// export const getNextRoute = (pathname) => {
+//   const language = getLanguage(pathname);
+//   const cleanPath = pathWithoutLang(pathname);
+
+//   const stepRoutes = routes.filter(r =>
+//     ["/", "/customisations", "/details", "/preview", "/confirm", "/payment"].includes(r.path)
+//   );
+
+//   const index = stepRoutes.findIndex(r => r.path === cleanPath);
+
+//   if (index === -1 || index === stepRoutes.length - 1) return null;
+
+//   const nextRoute = stepRoutes[index + 1];
+//   return {
+//     path: `/${language}${nextRoute.path}`,
+//     name: nextRoute.name,
+//   };
+// };
+
 export const getNextRoute = (pathname) => {
-  // const language = getLanguage(pathname);
-  // const cleanPath = pathWithoutLang(pathname);
-
-  // const index = routes.findIndex((r) => r.path === cleanPath);
-  // const nextRoute = index >= 0 && index < routes.length - 1 ? routes[index + 1] : routes[routes.length - 1];
-
-  // return { path: `/${language}${nextRoute.path}`, name: nextRoute.name };
   const language = getLanguage(pathname);
-  const cleanPath = pathWithoutLang(pathname);
+  const cleanPath = pathWithoutLang(pathname) || "/";
 
-  const stepRoutes = routes.filter(r =>
-    ["/", "/customisations", "/details", "/preview", "/confirm", "/payment"].includes(r.path)
-  );
+  const index = routes.findIndex(r => r.path === cleanPath);
+  if (index === -1 || index === routes.length - 1) return null;
 
-  const index = stepRoutes.findIndex(r => r.path === cleanPath);
-
-  if (index === -1 || index === stepRoutes.length - 1) return null;
-
-  const nextRoute = stepRoutes[index + 1];
+  const nextRoute = routes[index + 1];
   return {
     path: `/${language}${nextRoute.path}`,
     name: nextRoute.name,

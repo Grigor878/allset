@@ -147,7 +147,7 @@ const Details = () => {
               onChange={handleLngChange}
               hide={handleHide}
               required={false}
-              text="confirm"
+              text="confirm_participation"
               placeholder="confirm_placeholder"
             />
             <Counter

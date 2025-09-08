@@ -8,7 +8,7 @@ import { Button } from "@chakra-ui/react";
 export const Continue = () => {
   const [template] = useNuqs("template");
   const [palette] = useNuqs("palette");
-  const [accept] = useNuqs("accept");
+  const [accept] = useNuqs("terms_accepted");
   
   const { t } = useTranslation();
   const { pathname } = useLocation();
@@ -40,7 +40,7 @@ export const Continue = () => {
       disabled={disabled}
     >
       {/* {hasMultipleWords(name) ? name : `Continue to ${name}`} */}
-      {t("continue")} {name}
+      {t("continue")} {t(name)}
     </Button>
   ) : isConfirmPage ? (
     <Button
@@ -53,7 +53,7 @@ export const Continue = () => {
       bg="#F43F5E"
       disabled={disabled && !(accept == true || accept === "true")}
     >
-      {name}
+      {t(name)}
     </Button>
   ) : (
     <Button
@@ -65,7 +65,7 @@ export const Continue = () => {
       bg="#F43F5E"
       disabled={disabled}
     >
-      {t("continue")} {name}
+      {t("continue")} {t(name)}
     </Button>
   );
 };

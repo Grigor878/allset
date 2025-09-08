@@ -32,12 +32,12 @@ export const steps = {
 };
 
 export const routes = [
-  { path: "/", name: "Themes" },
-  { path: "/customisations", name: "Customisations" },
-  { path: "/details", name: "Details" },
-  { path: "/preview", name: "Preview" },
-  { path: "/confirm", name: "Confirm" },
-  { path: "/payment", name: "Proceed to Payment" },
+  { path: "/", name: "themes" },
+  { path: "/customisations", name: "customisations" },
+  { path: "/details", name: "details" },
+  { path: "/preview", name: "preview" },
+  { path: "/confirm", name: "confirm" },
+  { path: "/payment", name: "payment" },
 ];
 
 import allset from '../assets/allset.png'

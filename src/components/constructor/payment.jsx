@@ -18,7 +18,7 @@ export const Payment = () => {
       <Field.Root gap="24px">
         <Field.Label gap="16px">
           <Icon>{payment.icon}</Icon>
-          <Label text="payment" />
+          <Label text="payment_method" />
         </Field.Label>
 
         <Flex pl="40px" gap="16px">

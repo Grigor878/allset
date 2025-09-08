@@ -17,7 +17,7 @@ export const GoBack = () => {
   return (
     <Button onClick={() => navigate(-1)} variant="ghost" color="#4B5563">
       <Icon>{back.icon}</Icon>
-      {t("back")} {backInfo.name}
+      {t("back")} {t(backInfo?.name).toLowerCase()}
     </Button>
   );
 };

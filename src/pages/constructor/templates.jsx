@@ -6,6 +6,7 @@ import { Loader } from "../../components/loader";
 
 const Templates = () => {
   const { isLoading, data } = useGetTanstack("templates");
+  console.log(data); //
 
   if (isLoading) return <Loader />;
 
