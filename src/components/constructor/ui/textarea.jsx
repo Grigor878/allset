@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, Field, Flex, Icon, Stack, Textarea } from "@chakra-ui/react";
 import { Label } from "../texts/label";
 import { xls } from "../../../assets/svgs";
@@ -14,11 +14,16 @@ export const TextArea = ({
   required,
   text,
   placeholder,
+  languages,
 }) => {
   const { t } = useTranslation();
 
   const [checked, setChecked] = useState(true);
-  const [activeLang, setActiveLang] = useState("hy");
+  const [activeLang, setActiveLang] = useState("");
+
+  useEffect(() => {
+    languages?.length ? setActiveLang(languages[0]) : setActiveLang("");
+  }, [languages]);
 
   const handleSwitchChange = (e) => {
     setChecked(e.checked);
@@ -49,6 +54,7 @@ export const TextArea = ({
             <LngSwitcher
               activeLang={activeLang}
               setActiveLang={setActiveLang}
+              languages={languages}
             />
           </Stack>
           {!required && (
@@ -61,7 +67,7 @@ export const TextArea = ({
           placeholder={t(placeholder)}
           value={value?.[activeLang] ?? ""}
           onChange={(e) => onChange(name, activeLang, e.target.value)}
-          disabled={!checked}
+          disabled={!checked || !activeLang}
           h={name === "closingText" ? "66px" : "90px"}
           resize={"none"}
         />

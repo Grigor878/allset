@@ -1,11 +1,10 @@
 import { Button, ButtonGroup, Image } from "@chakra-ui/react";
-import { locales } from "../../../utils/constants";
 import { getFlagCode } from "../../../utils/helpers";
 
-export const LngSwitcher = ({ activeLang, setActiveLang }) => {
+export const LngSwitcher = ({ activeLang, setActiveLang, languages }) => {
   return (
     <ButtonGroup size="sm" variant="outline">
-      {locales?.map((lng) => (
+      {languages?.map((lng) => (
         <Button
           key={lng}
           onClick={() => setActiveLang(lng)}

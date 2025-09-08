@@ -11,15 +11,19 @@ import {
 import { story } from "../../assets/svgs";
 import { Label } from "./texts/label";
 import { FileUploadList } from "./ui/filleUpload";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { LngSwitcher } from "./ui/lngSwitcher";
 import { Switcher } from "./ui/switcher";
 
-export const Story = ({ name, value, onChange, hide, required }) => {
+export const Story = ({ name, value, onChange, hide, required, languages }) => {
   const { t } = useTranslation();
-  
+
   const [checked, setChecked] = useState(true);
-  const [activeLang, setActiveLang] = useState("hy");
+  const [activeLang, setActiveLang] = useState("");
+
+  useEffect(() => {
+    languages?.length ? setActiveLang(languages[0]) : setActiveLang("");
+  }, [languages]);
 
   const handleSwitchChange = (e) => {
     setChecked(e.checked);
@@ -77,6 +81,7 @@ export const Story = ({ name, value, onChange, hide, required }) => {
             <LngSwitcher
               activeLang={activeLang}
               setActiveLang={setActiveLang}
+              languages={languages}
             />
           </Stack>
           {!required && (
@@ -90,7 +95,7 @@ export const Story = ({ name, value, onChange, hide, required }) => {
         name="text"
         value={value?.text?.[activeLang] ?? ""}
         onChange={(e) => handleNestedChange(e, activeLang)}
-        disabled={!checked}
+        disabled={!checked || !activeLang}
         placeholder={t("story_placeholder")}
       />
       <FileUpload.Root accept="image/*" maxFiles={5} disabled={!checked}>

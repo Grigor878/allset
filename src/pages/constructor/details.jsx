@@ -118,6 +118,7 @@ const Details = () => {
               onChange={handleLngChange}
               setForm={setForm}
               required={true}
+              languages={form.languages}
             />
             <EventDate
               name="eventDate"
@@ -132,6 +133,7 @@ const Details = () => {
               required={true}
               text="description"
               placeholder="description_placeholder"
+              languages={form.languages}
             />
             <Photos
               // onFileSelect={(file) =>
@@ -149,6 +151,7 @@ const Details = () => {
               required={false}
               text="confirm_participation"
               placeholder="confirm_placeholder"
+              languages={form.languages}
             />
             <Counter
               name="countDown"
@@ -169,6 +172,7 @@ const Details = () => {
               onChange={handleChange}
               hide={handleHide}
               required={false}
+              languages={form.languages}
             />
             <AlbumLink
               name="albumLink"
@@ -192,6 +196,7 @@ const Details = () => {
               // }
               hide={handleHide}
               required={false}
+              languages={form.languages}
             />
           </Stack>
           <Expire />

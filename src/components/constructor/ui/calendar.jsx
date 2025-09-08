@@ -1,7 +1,15 @@
 import { useTranslation } from "react-i18next";
 import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Box, Dialog, Icon, Input, InputGroup, Button } from "@chakra-ui/react";
+import {
+  Box,
+  Dialog,
+  Icon,
+  Input,
+  InputGroup,
+  Button,
+  CloseButton,
+} from "@chakra-ui/react";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/style.css";
 import { calendar } from "../../../assets/svgs";
@@ -13,7 +21,7 @@ import useOutsideClick from "../../../hooks/useOutsideClick";
 
 export const Calendar = ({ name, value, onChange, required }) => {
   const ref = useRef();
-  
+
   const { t } = useTranslation();
   const { language } = useParams();
 
@@ -78,7 +86,15 @@ export const Calendar = ({ name, value, onChange, required }) => {
             background="white"
             padding={"25px"}
           >
-            <Button
+            <CloseButton
+              size="sm"
+              variant="outline"
+              onClick={() => setOpen(false)}
+              position="absolute"
+              top="5px"
+              right="5px"
+            />
+            {/* <Button
               onClick={() => setOpen(false)}
               // variant="outline"
               position="absolute"
@@ -92,7 +108,7 @@ export const Calendar = ({ name, value, onChange, required }) => {
               color="white"
             >
               X
-            </Button>
+            </Button> */}
 
             <Dialog.Body>
               <DayPicker

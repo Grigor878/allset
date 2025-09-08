@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   createListCollection,
   Field,
@@ -13,11 +13,22 @@ import { schemes, styles } from "../../utils/constants";
 import { LngSwitcher } from "./ui/lngSwitcher";
 import { Switcher } from "./ui/switcher";
 
-export const Dresscode = ({ name, value, onChange, hide, required }) => {
+export const Dresscode = ({
+  name,
+  value,
+  onChange,
+  hide,
+  required,
+  languages,
+}) => {
   const { t } = useTranslation();
 
   const [checked, setChecked] = useState(true);
-  const [activeLang, setActiveLang] = useState("hy");
+  const [activeLang, setActiveLang] = useState("");
+
+  useEffect(() => {
+    languages?.length ? setActiveLang(languages[0]) : setActiveLang("");
+  }, [languages]);
 
   const handleSwitchChange = (e) => {
     setChecked(e.checked);
@@ -92,6 +103,7 @@ export const Dresscode = ({ name, value, onChange, hide, required }) => {
             <LngSwitcher
               activeLang={activeLang}
               setActiveLang={setActiveLang}
+              languages={languages}
             />
           </Stack>
           {!required && (
@@ -104,7 +116,7 @@ export const Dresscode = ({ name, value, onChange, hide, required }) => {
           name="description"
           value={value?.description?.[activeLang] ?? ""}
           onChange={(e) => handleNestedChange(e, activeLang)}
-          disabled={!checked}
+          disabled={!checked || !activeLang}
           placeholder={t("dresscode_placeholder")}
         />
       </Field.Root>

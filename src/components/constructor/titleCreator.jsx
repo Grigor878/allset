@@ -1,15 +1,26 @@
 import { useTranslation } from "react-i18next";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Field, Flex, Input, Stack, Text } from "@chakra-ui/react";
 import { BASE_URL } from "../../services/api/config";
 import { Label } from "./texts/label";
 import { LngSwitcher } from "./ui/lngSwitcher";
 import { cleanUrlExtension } from "../../utils/formatters";
 
-export const TitleCreator = ({ name, value, onChange, required, setForm }) => {
+export const TitleCreator = ({
+  name,
+  value,
+  onChange,
+  setForm,
+  required,
+  languages,
+}) => {
   const { t } = useTranslation();
-  
-  const [activeLang, setActiveLang] = useState("hy");
+
+  const [activeLang, setActiveLang] = useState("");
+
+  useEffect(() => {
+    languages?.length ? setActiveLang(languages[0]) : setActiveLang("");
+  }, [languages]);
 
   const handleInputChange = (e) => {
     const val = e.target.value;
@@ -39,7 +50,11 @@ export const TitleCreator = ({ name, value, onChange, required, setForm }) => {
             <Field.RequiredIndicator fontSize="18px" />
             <Label text="invitation_title" />
           </Flex>
-          <LngSwitcher activeLang={activeLang} setActiveLang={setActiveLang} />
+          <LngSwitcher
+            activeLang={activeLang}
+            setActiveLang={setActiveLang}
+            languages={languages}
+          />
         </Field.Label>
         <Input
           name={name}
@@ -49,6 +64,7 @@ export const TitleCreator = ({ name, value, onChange, required, setForm }) => {
           required
           variant="outline"
           borderRadius={"8px"}
+          disabled={!activeLang}
         />
       </Field.Root>
 
