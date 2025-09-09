@@ -34,9 +34,9 @@ export const LngSelector = ({ name, value, onChange, required }) => {
       borderColor={"#E5E7EB"}
       bg="white"
       p="25px"
-      gap="14px"
+      gap="16px"
     >
-      <Field.Root required={required} gap={"16px"}>
+      <Field.Root required={required}>
         <Field.Label>
           <Field.RequiredIndicator fontSize="18px" />
           <Label text="select_languages" />

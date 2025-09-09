@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import { Button } from "@chakra-ui/react";
+import { useTranslation } from "react-i18next";
 
 export const ScrollToTop = () => {
+  const { t } = useTranslation();
+
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -38,7 +41,7 @@ export const ScrollToTop = () => {
       fontSize="14px"
       borderRadius="8px"
     >
-      Top &#8593;
+      {t("top")}
     </Button>
   );
 };
