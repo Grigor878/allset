@@ -32,10 +32,7 @@ export const Language = ({ isPending }) => {
   return (
     <Menu.Root>
       <Menu.Trigger asChild>
-        <Flex
-          align="center"
-          cursor="pointer"
-        >
+        <Flex align="center" cursor="pointer">
           {isPending ? (
             <Spinner />
           ) : (
@@ -53,13 +50,18 @@ export const Language = ({ isPending }) => {
       </Menu.Trigger>
       <Portal>
         <Menu.Positioner>
-          <Menu.Content w="auto" minW="unset">
+          <Menu.Content w="auto" minW="unset" p="0">
             <For each={languages.filter(({ flag }) => flag !== selected?.flag)}>
               {({ code, flag }) => (
                 <Menu.Item
                   key={code}
                   onClick={() => handleChangeLng(code)}
                   cursor="pointer"
+                  _hover={{
+                    bg: "#E5E7EB",
+                  }}
+                  px="12px"
+                  py="8px"
                 >
                   <Image
                     src={`https://flagcdn.com/${flag}.svg`}

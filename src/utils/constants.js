@@ -153,6 +153,7 @@ export const detailsForm = {
 
 import visa from "../assets/visa.png";
 import idram from "../assets/idram.png";
+import arca from "../assets/arca.png";
 
 export const paymentMethods = [
   {
@@ -162,6 +163,10 @@ export const paymentMethods = [
   {
     value: "idram",
     src: idram,
+  },
+  {
+    value: "arca",
+    src: arca,
   },
 ]
 

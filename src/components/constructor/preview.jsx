@@ -1,4 +1,5 @@
-import { useQueryState } from "nuqs";
+// import { useQueryState } from "nuqs";
+import { useNuqs } from "../../hooks/useNuqs";
 import {
   Box,
   Button,
@@ -15,7 +16,8 @@ import { responsive } from "../../utils/constants";
 import img from "../../assets/customisations.png";
 
 export const Preview = () => {
-  const [device, setDevice] = useQueryState("device");
+  // const [device, setDevice] = useQueryState("device");
+  const [device, setDevice] = useNuqs("device");
 
   return (
     <Box

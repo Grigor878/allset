@@ -47,8 +47,8 @@ const Confirm = () => {
             <ConfirmDate />
           </Stack>
           <Promocode />
-          <Legal />
           <Payment />
+          <Legal />
         </Stack>
       </Container>
     </Box>

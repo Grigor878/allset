@@ -29,7 +29,12 @@ export const Payment = () => {
                 w="48px"
                 h="48px"
                 p="3px"
-                variant={pay === value ? "surface" : "ghost"}
+                borderRadius={"12px"}
+                border={
+                  pay == value ? "2px solid #111827" : "2px solid transparent"
+                }
+                variant="outline"
+                // variant={pay === value ? "surface" : "ghost"}
                 onClick={() => setPay(value)}
               >
                 <Image src={src} alt={value} />
