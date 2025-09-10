@@ -9,7 +9,7 @@ export const Aside = ({ data, language }) => {
   return (
     <Box
       as="aside"
-      w="320px"
+      minW="320px"
       h="fit-content"
       bg="white"
       border="1px solid"
