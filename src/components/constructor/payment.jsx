@@ -1,11 +1,11 @@
 import { Button, Field, Flex, For, Icon, Image, Stack } from "@chakra-ui/react";
 import { payment } from "../../assets/svgs";
-import { useNuqs } from "../../hooks/useNuqs";
+import { useQueryState } from "nuqs";
 import { Label } from "./texts/label";
 import { paymentMethods } from "../../utils/constants";
 
 export const Payment = () => {
-  const [pay, setPay] = useNuqs("payment_method");
+  const [pay, setPay] = useQueryState("payment_method");
 
   return (
     <Stack

@@ -26,6 +26,7 @@ const Details = () => {
 
   const [templateId] = useNuqs("template");
   const [colorPaletteId] = useNuqs("palette");
+  
   const [form, setForm] = useState({
     ...detailsForm,
     templateId,

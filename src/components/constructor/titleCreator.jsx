@@ -45,7 +45,8 @@ export const TitleCreator = ({
       gap="14px"
     >
       <Field.Root required={required} gap={"16px"}>
-        <Field.Label as={Stack} alignItems={"flex-start"}>
+        {/* <Field.Label as={Stack} alignItems={"flex-start"}> */}
+        <Field.Label as={Flex} w="100%" justifyContent={"space-between"}>
           <Flex align={"center"} gap={"4px"}>
             <Field.RequiredIndicator fontSize="18px" />
             <Label text="invitation_title" />

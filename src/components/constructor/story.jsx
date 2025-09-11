@@ -67,26 +67,21 @@ export const Story = ({ name, value, onChange, hide, required, languages }) => {
       gap="16px"
     >
       <Field.Root required={required}>
-        <Field.Label
-          as={Flex}
-          w="100%"
-          align={"start"}
-          justify={"space-between"}
-        >
-          <Stack>
-            <Flex align={"center"} gap={"4px"}>
-              <Field.RequiredIndicator fontSize="18px" />
-              <Label text="story" />
-            </Flex>
+        <Field.Label as={Flex} w="100%" justify={"space-between"}>
+          <Flex align={"center"} gap={"4px"}>
+            <Field.RequiredIndicator fontSize="18px" />
+            <Label text="story" />
+          </Flex>
+          <Flex gap={"25px"}>
             <LngSwitcher
               activeLang={activeLang}
               setActiveLang={setActiveLang}
               languages={languages}
             />
-          </Stack>
-          {!required && (
-            <Switcher checked={checked} onChange={handleSwitchChange} />
-          )}
+            {!required && (
+              <Switcher checked={checked} onChange={handleSwitchChange} />
+            )}
+          </Flex>
         </Field.Label>
       </Field.Root>
       <Textarea

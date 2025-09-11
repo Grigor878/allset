@@ -43,23 +43,22 @@ export const TextArea = ({
         <Field.Label
           as={Flex}
           w="100%"
-          align={"start"}
           justify={"space-between"}
         >
-          <Stack>
-            <Flex align={"center"} gap={"4px"}>
-              <Field.RequiredIndicator fontSize="18px" />
-              <Label text={t(text)} />
-            </Flex>
+          <Flex align={"center"} gap={"4px"}>
+            <Field.RequiredIndicator fontSize="18px" />
+            <Label text={t(text)} />
+          </Flex>
+          <Flex gap={"25px"}>
             <LngSwitcher
               activeLang={activeLang}
               setActiveLang={setActiveLang}
               languages={languages}
             />
-          </Stack>
-          {!required && (
-            <Switcher checked={checked} onChange={handleSwitchChange} />
-          )}
+            {!required && (
+              <Switcher checked={checked} onChange={handleSwitchChange} />
+            )}
+          </Flex>
         </Field.Label>
 
         <Textarea

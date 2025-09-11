@@ -1,6 +1,7 @@
-import { useTranslation } from "react-i18next";
 import { useLocation, useParams, NavLink } from "react-router-dom";
 import { useNuqs } from "../../hooks/useNuqs";
+import { useQueryState } from "nuqs";
+import { useTranslation } from "react-i18next";
 import { getNextRoute } from "../../utils/helpers";
 import { isContinueDisabled } from "../../utils/checkers";
 import { Button } from "@chakra-ui/react";
@@ -8,11 +9,11 @@ import { Button } from "@chakra-ui/react";
 export const Continue = () => {
   const [template] = useNuqs("template");
   const [palette] = useNuqs("palette");
-  const [accept] = useNuqs("terms_accepted");
-  
+  const [accept] = useQueryState("terms_accepted");
+
   const { t } = useTranslation();
-  const { pathname } = useLocation();
   const { language } = useParams();
+  const { pathname, search } = useLocation();
 
   const nextInfo = getNextRoute(pathname);
 
@@ -58,7 +59,8 @@ export const Continue = () => {
   ) : (
     <Button
       as={!disabled ? NavLink : "button"}
-      to={!disabled ? path : undefined}
+      // to={!disabled ? path : undefined}
+      to={!disabled ? `${path}${search}` : undefined}
       fontWeight="400"
       fontSize="14px"
       borderRadius="8px"

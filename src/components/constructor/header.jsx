@@ -9,7 +9,6 @@ import logo from "../../assets/allset.png";
 
 export const Header = () => {
   const { t } = useTranslation();
-  // const [_, setTemplate] = useNuqs("template", null);
 
   return (
     <Flex
