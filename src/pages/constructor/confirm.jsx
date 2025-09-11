@@ -1,3 +1,4 @@
+import Seo from "../../components/seo";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Box, Container, Stack } from "@chakra-ui/react";
@@ -34,6 +35,7 @@ const Confirm = () => {
 
   return (
     <Box pt="32px" pb="40px">
+      <Seo title="confirm_title" description="confirm_text" />
       <Container maxW="1104px" px={0}>
         <Stack gap="24px" w="864px" mx="auto">
           <Stack

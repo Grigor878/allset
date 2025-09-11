@@ -1,3 +1,4 @@
+import Seo from "../../components/seo";
 import { useNavigate, useParams } from "react-router-dom";
 import { useRef, useState } from "react";
 import { Box, Container, Stack } from "@chakra-ui/react";
@@ -26,7 +27,7 @@ const Details = () => {
 
   const [templateId] = useNuqs("template");
   const [colorPaletteId] = useNuqs("palette");
-  
+
   const [form, setForm] = useState({
     ...detailsForm,
     templateId,
@@ -97,6 +98,7 @@ const Details = () => {
 
   return (
     <Box pt="32px" pb="65px">
+      <Seo title="details_title" description="details_text" />
       <Container maxW="1104px" px={0}>
         {/* VStack */}
         <Stack gap="24px" w="864px" mx="auto">

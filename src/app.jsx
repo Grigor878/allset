@@ -1,3 +1,4 @@
+import { HelmetProvider } from "@dr.pogodin/react-helmet";
 import { AuthProvider } from "./providers/authProvider";
 import { QueryProvider } from "./providers/queryProvider";
 import { ChakraUIProvider } from "./providers/chakcraProvider";
@@ -8,15 +9,17 @@ import "./services/i18n/i18n";
 
 const App = () => {
   return (
-    <AuthProvider>
-      <QueryProvider>
-        <ChakraUIProvider>
-          <NuqsProvider>
-            <RouterProvider router={router} />
-          </NuqsProvider>
-        </ChakraUIProvider>
-      </QueryProvider>
-    </AuthProvider>
+    <HelmetProvider>
+      <AuthProvider>
+        <QueryProvider>
+          <ChakraUIProvider>
+            <NuqsProvider>
+              <RouterProvider router={router} />
+            </NuqsProvider>
+          </ChakraUIProvider>
+        </QueryProvider>
+      </AuthProvider>
+    </HelmetProvider>
   );
 };
 

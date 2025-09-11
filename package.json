@@ -13,6 +13,7 @@
   "dependencies": {
     "@auth0/auth0-react": "^2.4.0",
     "@chakra-ui/react": "^3.24.2",
+    "@dr.pogodin/react-helmet": "^3.0.4",
     "@fontsource-variable/inter": "^5.2.6",
     "@tanstack/query-sync-storage-persister": "^5.83.1",
     "@tanstack/react-query": "^5.84.2",
