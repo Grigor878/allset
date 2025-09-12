@@ -15,6 +15,101 @@ export const languages = [
   },
 ]
 
+import { grooms, church, welcome, registration, banquet, cake, afterparty, end } from '../assets/svgs';
+
+export const agenda = [
+  {
+    icon: grooms,
+    venueName: {
+      hy: "",
+      en: "Groom's place",
+      ru: ""
+    },
+    time: "",
+    venueLocation: "",
+  },
+  {
+    icon: grooms,
+    venueName: {
+      hy: "",
+      en: "Bride's place",
+      ru: ""
+    },
+    time: "",
+    venueLocation: "",
+  },
+  {
+    icon: church,
+    venueName: {
+      hy: "",
+      en: "Church ceremony",
+      ru: ""
+    },
+    time: "",
+    venueLocation: "",
+  },
+  {
+    icon: welcome,
+    venueName: {
+      hy: "",
+      en: "Welcome Reception",
+      ru: ""
+    },
+    time: "",
+    venueLocation: "",
+  },
+  {
+    icon: registration,
+    venueName: {
+      hy: "",
+      en: "Registration ceremony",
+      ru: ""
+    },
+    time: "",
+    venueLocation: "",
+  },
+  {
+    icon: banquet,
+    venueName: {
+      hy: "",
+      en: "Banquet",
+      ru: ""
+    },
+    time: "",
+    venueLocation: "",
+  },
+  {
+    icon: cake,
+    venueName: {
+      hy: "",
+      en: "Cake Ceremony",
+      ru: ""
+    },
+    time: "",
+    venueLocation: "",
+  },
+  {
+    icon: afterparty,
+    venueName: {
+      hy: "",
+      en: "Afterparty",
+      ru: ""
+    },
+    time: "",
+    venueLocation: "",
+  },
+  {
+    icon: end,
+    venueName: {
+      hy: "",
+      en: "The End",
+      ru: ""
+    },
+    time: "",
+    venueLocation: "",
+  },
+]
+
 import { enUS, ru, hy } from "react-day-picker/locale";
 
 export const calenarLocales = {
@@ -123,6 +218,7 @@ export const detailsForm = {
     en: "",
     ru: ""
   },
+  timeline: [],
   countDown: true,
   connectWithUs: {
     // description: "",

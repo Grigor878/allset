@@ -18,6 +18,7 @@ import { detailsForm } from "../../utils/constants";
 import baseApi from "../../services/api/baseApi";
 import { useNuqs } from "../../hooks/useNuqs";
 import { LngSelector } from "../../components/constructor/lngSelector";
+import { Timeline } from "../../components/constructor/timeline";
 
 const Details = () => {
   const navigate = useNavigate();
@@ -56,6 +57,14 @@ const Details = () => {
       ...form,
       [e.target.name]: e.target.value,
     });
+  };
+
+  // for timeline updates (array)
+  const handleTimelineChange = (newTimeline) => {
+    setForm((prev) => ({
+      ...prev,
+      timeline: newTimeline,
+    }));
   };
 
   // multy language
@@ -157,6 +166,13 @@ const Details = () => {
                 text="confirm_participation"
                 placeholder="confirm_placeholder"
                 languages={form.languages}
+              />
+              <Timeline
+                name="timeline"
+                value={form.timeline}
+                hide={handleHide}
+                onChange={handleTimelineChange}
+                required={false}
               />
               <Counter
                 name="countDown"
