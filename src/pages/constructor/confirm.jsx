@@ -1,3 +1,4 @@
+import { Scroll } from "../../components/scroll";
 import Seo from "../../components/seo";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
@@ -34,26 +35,28 @@ const Confirm = () => {
   };
 
   return (
-    <Box pt="32px" pb="40px">
-      <Seo title="confirm_title" description="confirm_text" />
-      <Container maxW="1104px" px={0}>
-        <Stack gap="24px" w="864px" mx="auto">
-          <Stack
-            id="confirm"
-            as="form"
-            gap="24px"
-            autoComplete="on"
-            onSubmit={submit}
-          >
-            <TitleDemo />
-            <ConfirmDate />
+    <Scroll animationKey="confirm">
+      <Box pt="32px" pb="40px">
+        <Seo title="confirm_title" description="confirm_text" />
+        <Container maxW="1104px" px={0}>
+          <Stack gap="24px" w="864px" mx="auto">
+            <Stack
+              id="confirm"
+              as="form"
+              gap="24px"
+              autoComplete="on"
+              onSubmit={submit}
+            >
+              <TitleDemo />
+              <ConfirmDate />
+            </Stack>
+            <Promocode />
+            <Payment />
+            <Legal />
           </Stack>
-          <Promocode />
-          <Payment />
-          <Legal />
-        </Stack>
-      </Container>
-    </Box>
+        </Container>
+      </Box>
+    </Scroll>
   );
 };
 

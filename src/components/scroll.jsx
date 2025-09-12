@@ -5,7 +5,7 @@ import { Box } from "@chakra-ui/react";
 
 const MotionBox = motion.create(Box);
 
-export const Scroll = ({ children, scrollToTop = true }) => {
+export const Scroll = ({ children, scrollToTop = true, animationKey }) => {
   useLayoutEffect(() => {
     if (scrollToTop) {
       scrollToTopWithDuration(700);
@@ -15,7 +15,7 @@ export const Scroll = ({ children, scrollToTop = true }) => {
   return (
     <AnimatePresence mode="wait">
       <MotionBox
-        key={children?.key}
+        key={animationKey}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -20 }}

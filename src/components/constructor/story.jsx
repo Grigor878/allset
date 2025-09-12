@@ -77,6 +77,7 @@ export const Story = ({ name, value, onChange, hide, required, languages }) => {
               activeLang={activeLang}
               setActiveLang={setActiveLang}
               languages={languages}
+              disabled={!checked}
             />
             {!required && (
               <Switcher checked={checked} onChange={handleSwitchChange} />
@@ -95,7 +96,7 @@ export const Story = ({ name, value, onChange, hide, required, languages }) => {
       />
       <FileUpload.Root accept="image/*" maxFiles={5} disabled={!checked}>
         <FileUpload.HiddenInput />
-        <FileUpload.Dropzone w="100%">
+        <FileUpload.Dropzone w="100%" cursor={!checked && "not-allowed"}>
           <Icon>{story.icon}</Icon>
           <FileUpload.DropzoneContent>
             <Text textStyle="md">{t("photos_drag")}</Text>

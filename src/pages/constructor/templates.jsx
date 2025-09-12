@@ -1,3 +1,4 @@
+import { Scroll } from "../../components/scroll";
 import Seo from "../../components/seo";
 import { Box, Container, Flex, For } from "@chakra-ui/react";
 import { Card } from "../../components/constructor/card";
@@ -12,14 +13,16 @@ const Templates = () => {
   if (isLoading) return <Loader />;
 
   return (
-    <Box>
-      <Seo title="template_title" description="template_text" />
-      <Container maxW="1104px" px={0}>
-        <Flex justify={"space-between"} gap="32px" pt="32px" pb="32px">
-          <For each={data}>{(el, index) => <Card key={index} el={el} />}</For>
-        </Flex>
-      </Container>
-    </Box>
+    <Scroll animationKey="templates">
+      <Box>
+        <Seo title="template_title" description="template_text" />
+        <Container maxW="1104px" px={0}>
+          <Flex justify={"space-between"} gap="32px" pt="32px" pb="32px">
+            <For each={data}>{(el, index) => <Card key={index} el={el} />}</For>
+          </Flex>
+        </Container>
+      </Box>
+    </Scroll>
   );
 };
 

@@ -54,6 +54,7 @@ export const TextArea = ({
               activeLang={activeLang}
               setActiveLang={setActiveLang}
               languages={languages}
+              disabled={!checked}
             />
             {!required && (
               <Switcher checked={checked} onChange={handleSwitchChange} />

@@ -1,3 +1,4 @@
+import { Scroll } from "../../components/scroll";
 import Seo from "../../components/seo";
 import { Box, Container, Flex } from "@chakra-ui/react";
 import { useGetTanstack } from "../../hooks/useTanstack";
@@ -18,11 +19,12 @@ const Customisations = () => {
   if (!selectedTemplate) return <Loader />;
 
   return (
-    <Box position={"relative"} pt="32px" pb="32px">
-      <Seo title="choose_palette" description="select_palette" />
-      <Container maxW="1104px" px={0}>
-        <Flex gap={"24px"}>
-          {/* <Box flex="1">
+    <Scroll animationKey="customisations">
+      <Box position={"relative"} pt="32px" pb="32px">
+        <Seo title="choose_palette" description="select_palette" />
+        <Container maxW="1104px" px={0}>
+          <Flex gap={"24px"}>
+            {/* <Box flex="1">
             <Text fontSize="2xl" fontWeight="bold">
               {selectedTemplate.name[language] || selectedTemplate.name.en}
             </Text>
@@ -32,11 +34,12 @@ const Customisations = () => {
             </Text>
           </Box> */}
 
-          <Aside data={selectedTemplate} language={language} />
-          <Preview />
-        </Flex>
-      </Container>
-    </Box>
+            <Aside data={selectedTemplate} language={language} />
+            <Preview />
+          </Flex>
+        </Container>
+      </Box>
+    </Scroll>
   );
 };
 

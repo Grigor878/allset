@@ -89,11 +89,7 @@ export const Dresscode = ({
       gap="16px"
     >
       <Field.Root required={required} gap={"16px"}>
-        <Field.Label
-          as={Flex}
-          w="100%"
-          justify={"space-between"}
-        >
+        <Field.Label as={Flex} w="100%" justify={"space-between"}>
           <Flex align={"center"} gap={"4px"}>
             <Field.RequiredIndicator fontSize="18px" />
             <Label text="dresscode" />
@@ -103,6 +99,7 @@ export const Dresscode = ({
               activeLang={activeLang}
               setActiveLang={setActiveLang}
               languages={languages}
+              disabled={!checked}
             />
             {!required && (
               <Switcher checked={checked} onChange={handleSwitchChange} />
