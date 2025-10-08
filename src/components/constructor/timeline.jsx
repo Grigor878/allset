@@ -1,17 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
-import {
-  Checkbox,
-  Field,
-  Flex,
-  HStack,
-  Icon,
-  Image,
-  Input,
-  Show,
-  Stack,
-  Text,
-} from "@chakra-ui/react";
+import { Checkbox, Field, Flex, Icon, Input, Stack } from "@chakra-ui/react";
 import { Label } from "./texts/label";
 import { Switcher } from "./ui/switcher";
 import { agenda } from "../../utils/constants";
