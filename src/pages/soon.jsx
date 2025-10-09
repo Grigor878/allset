@@ -55,7 +55,7 @@ const Soon = () => {
         <Stack align={"center"} gap={{ base: "42px", md: "52px" }}>
           <Heading
             as="h1"
-            fontFamily={"Montserrat"}
+            fontFamily={"Montaga"}
             fontWeight={400}
             fontSize={{ base: "42px", md: "76px" }}
             lineHeight={"24px"}
@@ -67,7 +67,6 @@ const Soon = () => {
 
           <Text
             pt={{ md: "32px" }}
-            fontFamily={"Montserrat"}
             textAlign={"center"}
             width={{ base: "297px", md: "643px" }}
             fontWeight={400}
@@ -90,7 +89,6 @@ const Soon = () => {
             <Input
               w="327px"
               h={{ base: "44px", md: "52px" }}
-              fontFamily={"Montserrat"}
               placeholder="e-mail address"
               border={"2px solid #80A0A154"}
               borderRadius={"9px"}
@@ -99,7 +97,6 @@ const Soon = () => {
               onChange={(e) => setEmail(e.target.value)}
             />
             <Button
-              fontFamily={"Montserrat"}
               fontSize={{ base: "12px", md: "18px" }}
               lineHeight={"24px"}
               letterSpacing={"0px"}

@@ -1,5 +1,5 @@
 body {
-  font-family: 'Inter Variable', sans-serif;
+  font-family: "Montserrat";
 }
 
 html::-webkit-scrollbar,
@@ -14,7 +14,7 @@ body::-webkit-scrollbar-track {
 
 html::-webkit-scrollbar-thumb,
 body::-webkit-scrollbar-thumb {
-  background-color: #F43F5E;
+  background-color: #f43f5e;
 }
 
 html::-webkit-scrollbar-thumb:hover,
